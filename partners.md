@@ -18,4 +18,4 @@ The primary functions of the institute are to:
 * Provide advice to participating governments on meteorological and hydrological matters
 * **Collect, analyze, and publish** meteorological and hydrological data
 
-For more information about the CIMH, please go to their website: https://www.cimh.edu.bb/
+For more information about the CIMH, please go to their website: [https://www.cimh.edu.bb/](https://www.cimh.edu.bb/)
