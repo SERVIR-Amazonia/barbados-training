@@ -7,7 +7,7 @@ nav_order: 4
 # Partners 
 
 ## Caribbean Institute for Meteorology and Hydrology
-<img style="float: left;" src="images/cimh-logo-resized.png">
+<img align="left" src="images/cimh-logo-resize.png">
 The Caribbean Institute for Meteorology and Hydrology (CIMH) is a training and research organization formed by the merger of the Caribbean Meteorological Institute (CMI) and Caribbean Operational Hydrological Institute (COHI). The role and mission of the CIMH is to improve the meteorological and hydrological services and to assist in promoting the awareness of the benefits of these services for the economic well-being of the Caribbean Meteorological Organization countries. This is achieved through training, research and investigations, and the provision of specialized services and advice. 
 
 The primary functions of the institute are to:
