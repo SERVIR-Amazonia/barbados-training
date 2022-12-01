@@ -30,7 +30,7 @@ Raster data is quite different from vector data. Vector data has discrete featur
 Now, we can add the SRTM elevation data. The SRTM data can be added indirectly or directly in QGIS. The indirect way uses the SRTM data provided by CGIAR and produces a 90 m resolution DEM. The direct way uses SRTM data from NASA and gives a 30 m resolution. The indirect method is faster. Those who have an EarthData login can use the NASA EarthData website and download the SRTM directly in QGIS. Both methods are described below for future reference, though the data has already been downloaded for you and can be found in `intro-gis-data/PR_SRTM`.
 
 #### Indirect Download
-1. Go to the (CGIAR SRTM website)[https://srtm.csi.cgiar.org/srtmdata/)].
+1. Go to the (CGIAR SRTM website)[https://srtm.csi.cgiar.org/srtmdata/].
 2. Select the tiles that cover your area of interest. [IMAGE srtm tiles]
 3. Click on `Search`.
 4. Download the SRTM tiles that cover the study area.
