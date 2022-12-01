@@ -12,8 +12,8 @@ nav_order: 2
 Navigate through the different lesson sections by using the menu on the lefthand side or the table of contents below. 
 
 ## Session Agenda
-**Date**: DATE  
-**Instructor(s):** NAME(S)
+**Date**: December 1, 2022 
+**Instructor:** Hayley Pippin, hpippin@sig-gis.com
 
 <table>
   <tbody>
