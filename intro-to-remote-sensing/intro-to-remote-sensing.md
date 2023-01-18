@@ -10,8 +10,8 @@ nav_order: 3
 Navigate through the different lesson sections by using the menu on the lefthand side or the table of contents below.
 
 ## Session Agenda
-**Date**: DATE  
-**Instructor(s):** NAME(S)
+**Date**: January 24, 2023  
+**Instructor:** Hayley Pippin
 
 <table>
   <tbody>
