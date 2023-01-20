@@ -7,7 +7,7 @@ nav_order: 1
 
 # Introduction
 
-Welcome to an Introduction to GIS & Remote Sensing! This workshop will give an overview of remote sensing and explore some methods for accessing and analyzing remote sensing data. To start off, this section will cover a number of fundamental remote sensing concepts and provide a snapshot of key satellites and sensors to be aware of throughout the next few modules. 
+Welcome to an Introduction to Remote Sensing! This workshop will give an overview of remote sensing and explore some methods for accessing and analyzing remote sensing data. To start off, this section will cover a number of fundamental remote sensing concepts and provide a snapshot of key satellites and sensors to be aware of throughout the next few modules. 
 
 ## Pre-workshop Set-up
 1. [Install](https://www.qgis.org/en/site/forusers/download.html) QGIS if not already installed.
