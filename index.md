@@ -37,3 +37,8 @@ If you have any questions about the material, please submit a question below! We
 If you have any feedback from any of the workshops, please fill out the form below. It helps us improve future workshops!
 
 [Give Feedback](https://forms.gle/mS5qMCcAKhUzRVNp7){: .btn .btn-purple }
+
+## Workshop Recordings
+The recordings for each workshop session can be access by clicking the button below. Please do not remove any files from the folder.
+
+[View Recordings](https://drive.google.com/drive/folders/1ahkYHt-vEty6Q_VdetIHIIMwZaAwHKRv?usp=share_link)
