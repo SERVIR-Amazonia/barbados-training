@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Partners
-nav_order: 4
+nav_order: 10
 ---
 
 # Partners 
