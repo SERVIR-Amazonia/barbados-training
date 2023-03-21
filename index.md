@@ -25,7 +25,7 @@ If you have any questions about the material, please submit a question below! We
 |-----------------|-----------------------------------------------------|------------------|-----------|
 | 1               | Introduction to GIS with QGIS                       | December 1, 2022 | Virtual   |
 | 2               | Introduction to Remote Sensing                      | January 24, 2023 | Virtual   |
-| 3-4             | Introduction to Google Earth Engine                 | March 2023       | In-person |
+| 3-4             | Introduction to Google Earth Engine                 | May 15 and 16 2023      | In-person |
 | 5               | Introduction to Radar                               | March 2023       | In-person |
 | 6-7             | Flood Mapping                                       | March 2023       | In-person |
 | 8               | Mapping Using Multiple Sensors (Flood or Mangroves) | May 2023         | Virtual   |
