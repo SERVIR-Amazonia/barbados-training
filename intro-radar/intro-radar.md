@@ -3,7 +3,7 @@ layout: page
 title: "Introduction to Radar"
 permalink: /intro-radar
 has_children: True
-nav_order: 5
+nav_order: 3
 ---
 
 # Introduction to Radar
