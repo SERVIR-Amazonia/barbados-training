@@ -3,7 +3,7 @@ layout: page
 title: "Change Detection (Flood or Mangroves)"
 permalink: /change-detection
 has_children: True
-nav_order: 9
+nav_order: 10
 ---
 
 # Change Detection (Flood or Mangroves)
