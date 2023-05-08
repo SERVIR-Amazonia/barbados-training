@@ -3,7 +3,7 @@ layout: page
 title: Flood Mapping Using Multiple Sensors in GEE 2
 permalink: /flood-mapping-gee-1
 has_children: True
-nav_order: 7
+nav_order: 6
 ---
 
 # Flood Mapping Using Multiple Sensors - Flooded Land Classification
@@ -12,7 +12,7 @@ Navigate through the different lesson sections by using the menu on the lefthand
 
 ## Session Agenda
 
-**Date**: 18 May 2023  
+**Date**: 19 May 2023  
 **Instructor:** Kyle Woodward
 
 |      Time     |                                                                                                       Topics                                                                                                                                     |

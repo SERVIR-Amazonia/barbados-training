@@ -3,7 +3,7 @@ layout: page
 title: Flood Mapping Using Multiple Sensors in GEE 1
 permalink: /flood-mapping-gee-2
 has_children: True
-nav_order: 6
+nav_order: 7
 ---
 
 # Flood Mapping Using Multiple Sensors - Surface Water Mapping
@@ -12,7 +12,7 @@ Navigate through the different lesson sections by using the menu on the lefthand
 
 ## Session Agenda
 
-**Date**: 19 May 2023  
+**Date**: 18 May 2023  
 **Instructor:** Kyle Woodward
 
 |      Time     |                                                                                                       Topics                                                                                                                                     |

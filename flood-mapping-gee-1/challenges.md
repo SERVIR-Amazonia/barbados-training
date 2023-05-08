@@ -2,7 +2,7 @@
 layout: page
 title: Challenges - Modify and Improve Your SAR Flooded Classification
 parent: Flood Mapping Using Multiple Sensors
-nav_order: 4
+nav_order: 3
 ---
 
 # Overview
