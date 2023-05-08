@@ -9,20 +9,9 @@ nav_order: 3
 
 *Keep the script from Browsing & Preprocessing open, we will continue on.*
 
-This exercise will demonstrate how to create a cloud-cloud shadow mask using Earth Engine over Landsat imagery. We use the quality assessment (QA) pixel band to create a cloud and shadow mask. Bits 3 and 4 are cloud and cloud shadow, respectively. We define a function which always includes the ***return*** command to provide the resultant product.
+This exercise will demonstrate how to create a cloud-cloud shadow mask using Earth Engine over Landsat imagery. We use the quality assessment (QA) pixel band to create a cloud and shadow mask. Bits 3 and 4 are cloud and cloud shadow, respectively. We define a function which always includes the ***return*** command to provide the resultant product. 
 
-```javascript
-function cloudShadowMask(image) {
-  var cloudsBitMask = (1 << 3);//
-  var cloudShadowBitMask = (1 << 4);
-  // Get the pixel QA band.
-  var qa = image.select('QA_PIXEL');
-  var mask = qa.bitwiseAnd(cloudShadowBitMask).eq(0)
-            	.and(qa.bitwiseAnd(cloudsBitMask).eq(0))
-            	.copyProperties(image,['system:time_start','system:time_end','system:index']);
-  return ee.Image(mask)        	 
-}
-```
+<img align="center" src="../images/intro-gee-images/47_cloudMaskFuncPic.png" hspace="15" vspace="10" width="600">
 
 The QA_PIXEL band is the information channel that characterizes the quality of the pixel regarding cloud and cloud shadow. How to use this info?...  If we want to know about a specific function we can go to the ‘Docs’ section and type the function name, then click on the function and see the specification, parameters and application of it. Look closely at the type of object you’re applying to. In this case, we are looking for the bitwiseAnd operator for the object *image* (ee.Image).
 
@@ -78,12 +67,12 @@ Now that the cloud mask has been generated, we apply it to the image collection.
 
 Figure 18. Cloud masked Landsat mosaic.
 
-However we need to compute a value representing the series of SR values.  This is called a composite. Usually a statistic as the median works well for composites. Additionally we can clip the image to frame it to the Trinidad boundary
+However we need to compute a value representing the series of SR values.  This is called a composite. Usually a statistic as the median works well for composites. Additionally we can clip the image to frame it to the Barbados boundary
 
 ```javascript
 var l8_sr_med = landsat8_sr_cloud_masked.median()
 .select('SR_B2','SR_B3','SR_B4','SR_B5', 'SR_B6', 'SR_B7')
-.clip(trinidad_bou)
+.clip(barbados_bou)
 
 Map.addLayer(l8_sr_med, visual_lan, 'True Color Landsat Median');
 ```
@@ -94,7 +83,7 @@ Figure 19. Computed temporal median of a Landsat-8 collection, plus clipped.
 
 We can analyze and compare some very cloudy areas after they have been cloud-masked. 
 
-Code Checkpoint: [https://code.earthengine.google.com/6bdd9c06609f4fcd9c374a99624058a2](https://code.earthengine.google.com/6bdd9c06609f4fcd9c374a99624058a2).
+Code Checkpoint: [https://code.earthengine.google.com/9c9c29f68ed95883aa41915dd6db87cb](https://code.earthengine.google.com/9c9c29f68ed95883aa41915dd6db87cb).
 
 <img align="center" src="../images/intro-gee-images/20_compare.png" hspace="15" vspace="10" width="600">
 

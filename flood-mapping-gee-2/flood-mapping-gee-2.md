@@ -12,7 +12,7 @@ Navigate through the different lesson sections by using the menu on the lefthand
 
 ## Session Agenda
 
-**Date**: 18 May 2023  
+**Date**: 19 May 2023  
 **Instructor:** Kyle Woodward
 
 |      Time     |                                                                                                       Topics                                                                                                                                     |

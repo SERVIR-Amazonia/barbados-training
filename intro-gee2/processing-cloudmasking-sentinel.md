@@ -38,12 +38,12 @@ Then we apply the cloud masking function `maskS2clouds` to the sentinel dataset.
 ```javascript
 var s2_sr_med = sentinel2_sr
 .filterDate('2022-01-01', '2022-06-30')
-.filterBounds(trinidad_bou)
+.filterBounds(barbados_bou)
 .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE',20))
 .map(maskS2clouds)
 .median()
 .select('B2','B3','B4','B5', 'B6', 'B7', 'B8', 'B8A', 'B11', 'B12')  // B 'B2', G 'B3', R 'B4', NIR 'B8'
-.clip(trinidad_bou);
+.clip(barbados_bou);
 
 // visualization sentinel 2
 var visual_sen = {  //{bands: ['B4', 'B3','B2'], min: 0, max: 2000, gamma: 11}
@@ -69,4 +69,4 @@ Figure 23. Comparing different levels of cloud tolerance
 
 The obstacle of cloudiness presence is major in the tropics. If you test this cloud masking procedure in other higher latitude regions then you might find less cloudy scenes. The tiles missing (gaps) correspond to images that did not pass the cloud percentage filter.
 
-Code Checkpoint: [https://code.earthengine.google.com/48d83d2ec751ca45ac1b7415bd5916ac](https://code.earthengine.google.com/48d83d2ec751ca45ac1b7415bd5916ac)
+Code Checkpoint: [https://code.earthengine.google.com/fdc744c552d1f0c23039de42dcfdfc21](https://code.earthengine.google.com/fdc744c552d1f0c23039de42dcfdfc21)

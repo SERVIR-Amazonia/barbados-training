@@ -11,7 +11,7 @@ Complete the two challenge tasks in order. Collaborate with colleagues and your 
 
 ## Task 1: Create Normalized Difference Vegetation Index
 
-Create a Normalized Difference Vegetation Index (NDVI) using the Landsat 8 dataset for a period from January  2020 to June 2022 for a specific region of Trinidad and Tobago.
+Create a Normalized Difference Vegetation Index (NDVI) using the Landsat 8 dataset for a period from January  2020 to June 2022 for a specific region of Barbados.
 
 *Hint 1: There are good example scripts in the 'Examples' folder of the Scripts panel. look for existent scripts that already have done something similar.*
 

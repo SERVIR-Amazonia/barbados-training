@@ -31,29 +31,30 @@ Figure 26. Product added
 //	NASA Digital Elevation Model (DEM)  
 var elevation = nasadem.select('elevation');
 // Set elevation <= 0 as transparent and add to the map.
-elevation = elevation.updateMask(elevation.gt(0)).clip(trinidad_bou);
+elevation = elevation.updateMask(elevation.gt(0)).clip(barbados_bou);
 
 
 // Set elevation visualization properties.
 var elevationVis = {
   min: 0,
-  max: 2000,
+  max: 400,
 };
 
 Map.addLayer(elevation, elevationVis, 'Elevation');
 ```
 
-Now let’s analyze the terrain height at some specific locations. Trinidad is traversed by three distinct mountain ranges that are a continuation of the Venezuelan coastal cordillera. The Northern Range, an outlier of the Andes Mountains of Venezuela, consists of rugged hills that parallel the coast. This range rises into two peaks. The highest, El Cerro del Aripo, is 940 metres (3,084 ft) high; the other, El Tucuche, reaches 936 metres (3,071 ft). 
+Elevations in the interior range from 180 to 240 meters above sea level. Mount Hillaby is the highest point at 340 meters above sea level. [Source](https://en.wikipedia.org/wiki/Geography_of_Barbados)
 
-<img align="center" src="../images/intro-gee-images/27_ElCerroDelAripo.png" hspace="15" vspace="10" width="600">
+<img align="center" src="../images/intro-gee-images/mount_hillaby.jpg" hspace="15" vspace="10" width="600">
 
-Figure 27. El Cerro Del Aripo, Trinidad. [Source](http://cstrinidadandtobago.weebly.com/el-cerro-del-aripo.html)
+Figure 27. Mount Hillaby, Barbados. [Source](https://premierhotelier.files.wordpress.com/2014/08/jj2-3.jpg)
 
 ```javascript
-// Around El Cerro Del Aripo Mtn
-var p01 = ee.Geometry.Point(-61.24, 10.73)
+// Around Mt Hillaby
+var p01 = ee.Geometry.Point(-59.58463, 13.2018)
 
 Map.addLayer(p01, {color:'red'}, 'point');
+Map.centerObject(p01,12)
 ```
 
 <img align="center" src="../images/intro-gee-images/28_elev_mount.png" hspace="15" vspace="10" width="600">
@@ -96,4 +97,4 @@ Figure 34. Terrain view
 
 We can easily recognize our point of reference located at the 900 m contour line.
 
-Code Checkpoint: [https://code.earthengine.google.com/01e2c9c450bcffc966a2330e6bd5edae](https://code.earthengine.google.com/01e2c9c450bcffc966a2330e6bd5edae)
+Code Checkpoint: [https://code.earthengine.google.com/6e6dfe82c96ad645548d92f3bd09d40f](https://code.earthengine.google.com/6e6dfe82c96ad645548d92f3bd09d40f)

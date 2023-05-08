@@ -19,12 +19,12 @@ Figure 35. Looking for flowing rivers datasets
 
 Figure 36. HydroSHEDS Free Flowing Rivers Network description.
 
-Let’s import it and name it as rivers, and apply the spatial and temporal filters.  It’s important to notice this information corresponds to February 2000 as it can be read in the description. 
+Let’s import it and name it as 'rivers', and apply the spatial and temporal filters.  It’s important to notice this information corresponds to February 2000 as it can be read in the description. 
 
 ```javascript
 //River information
 var flowingRivers = ee.Image().byte().paint(rivers, 'RIV_ORD', 2)
-.clip(trinidad_bou);
+.clip(barbados_bou);
 
 var riverVisParams = {
   min: 1,
@@ -38,9 +38,9 @@ Map.addLayer(rivers, null, 'Rivers FeatureCollection', false);
 
 <img align="center" src="../images/intro-gee-images/37_rivers_clip.png" hspace="15" vspace="10" width="300">
 
-Figure 37. HydroSHEDS clipped layer showing the river network in Trinidad.
+Figure 37. HydroSHEDS clipped layer showing the river network in Barbados.
 
-The layer named as ‘Rivers Feature Collection’ contains every single item of the dataset such as small tributaries and minor rivers. Now let’s do a zoom at 500 m scale over the capital city. We are able to see the scale of visualization by using the scale bar in the lower right corner as it is circled and pointed out in Figure 38.  Let’s leave only the hydrosheds and true color sentinel layers activated.
+The layer named as ‘Rivers Feature Collection’ contains every single item of the dataset such as small tributaries and minor rivers. Now let’s do a zoom over the capital city. We are able to see the scale of visualization by using the scale bar in the lower right corner as it is circled and pointed out in Figure 38.  Let’s leave only the hydrosheds and true color sentinel layers activated.
 
 <img align="center" src="../images/intro-gee-images/38_river_sem.png" hspace="15" vspace="10" width="600">
 
@@ -53,13 +53,13 @@ Map.addLayer(cloud_mask, {}, 'cloud mask', false);
 Map.addLayer(l8_sr_cloud_masked.median(), visual_lan, 'image cloud masked', 0);
 ```
 
-Now let’s export this dataset using the function *Export*. Something very important is to keep the visor panel large enough for our intended to be exported region or study area. The larger your study region the longer will be the Export request task. One additional step you could do is to draw a polygon of a smaller area of interest within the Trinidad territory.  You can check this optional step in the general script link.
+Now let’s export this dataset using the function *Export*. Something very important is to keep the visor panel large enough for our intended to be exported region or study area. The larger your study region the longer will be the Export request task. One additional step you could do is to draw a polygon of a smaller area of interest within the Barbados territory.  You can check this optional step in the general script link.
 
 ```javascript
 Export.image.toDrive(
 {
   image: flowingRivers,
-  description: 'flowingRiversTrinidad',
+  description: 'flowingRiversBarbados',
   folder:'training_servir_amazonia',    
   maxPixels:1e13
   }
@@ -83,7 +83,7 @@ We might find errors like this *“Error: Pixel type not supported: Type\<Long>\
 Export.image.toDrive(
 {
   image: ee.Image(flowingRivers).toDouble(),
-  description: 'flowingRiversTrinidad',
+  description: 'flowingRiversBarbados',
   folder:'training_servir_amazonia',    
   maxPixels:1e13
   }
@@ -97,8 +97,6 @@ In order to check the progress of the Export task, look at the task manager webs
 Figure 41. Task being exported.
 
 <img align="center" src="../images/intro-gee-images/42_task_run.png" hspace="15" vspace="10" width="600">
-
-The task might take around 14 minutes to complete.
 
 Figure 42. Task manager
 
@@ -120,4 +118,4 @@ Once the exportation has finished we can download the data and upload it in othe
 
 Figure 45. HydroShed River network raster loaded in QGIS.
 
-Code Checkpoint: [https://code.earthengine.google.com/e8ad7cb2972338fa3edc3d0dfeab429d](https://code.earthengine.google.com/e8ad7cb2972338fa3edc3d0dfeab429d).
+Code Checkpoint: [https://code.earthengine.google.com/e88efbb87f7305ce33aff2d8abd263f7](https://code.earthengine.google.com/e88efbb87f7305ce33aff2d8abd263f7).

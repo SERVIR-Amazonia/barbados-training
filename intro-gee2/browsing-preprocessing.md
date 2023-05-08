@@ -31,7 +31,7 @@ Figure 6. Landsat 8 description.
 
 Lets hit the ‘Import’ button, and at the top of your script, change the name of the imported collection to ‘*landsat8_sr*’. 
 
-Now let's download the boundary shapefile of Trinidad. We are going to upload this file into the Assets section to have our country boundary available. Download the file `TrinidadTobago.zip` from the shared Google Drive [data folder](https://drive.google.com/drive/folders/1Aov0j6ASs6eQVel4EeiiZrGaDRhq5WGQ?usp=share_link). 
+Now let's download the boundary shapefile of Barbados. We are going to upload this file into the Assets section to have our country boundary available. Download the file `Barbados.zip` from the shared Google Drive [data folder](https://drive.google.com/drive/folders/1Aov0j6ASs6eQVel4EeiiZrGaDRhq5WGQ?usp=share_link). 
 
 <img align="center" src="../images/intro-gee-images/46_ttDrive.PNG" hspace="15" vspace="10" width="300">
 
@@ -65,7 +65,7 @@ The two-arrows icon permits us to refresh the view in case you don’t see the u
 
 Figure 11. Shapefile loaded.
 
-Click on ‘*Import*’ and change the name to *trinidad_bou*. Now let’s work filtering our current image collection over three aspects: temporal, spatial, and spectral.
+Click on ‘*Import*’ and change the name to *barbados_bou*. Now let’s work filtering our current image collection over three aspects: temporal, spatial, and spectral.
 
 <img align="center" src="../images/intro-gee-images/12_type.png" hspace="15" vspace="10" width="300">
 
@@ -81,12 +81,12 @@ Figure 13. Keyboard shortcut
 
 Figure 14. Available functions listed.
 
-The following code selects 3 months of Landsat 8 imagery over Trinidad territory. Immediately we apply a scale factor.
+The following code selects 3 months of Landsat 8 imagery over Barbados. Immediately we apply a scale factor.
 
 ```javascript
 landsat8_sr = landsat8_sr
 .filterDate('2022-10-01', '2022-12-31')
-.filterBounds(trinidad_bou)
+.filterBounds(barbados_bou)
 
 // Applies scaling factors needed for Landsat collection 02
 function applyScaleFactors(image) {
@@ -107,17 +107,17 @@ var visualization = {
   max: 0.3,
 };
 
-Map.centerObject(trinidad_bou, 8)
+Map.centerObject(barbados_bou, 8)
 
 // Now we visualize the layers created using the 
-Map.addLayer(trinidad_bou, {}, 'trinidad', 0)
+Map.addLayer(barbados_bou, {}, 'barbados', 0)
 Map.addLayer(landsat8_sr, visualization, 'True Color (432)');
 ```
 
 <img align="center" src="../images/intro-gee-images/15_land.png" hspace="15" vspace="10" width="600">
 
-Figure 15. True color Landsat 8 collection 2 images for Trinidad.
+Figure 15. True color Landsat 8 collection 2 images for Barbados.
 
 We have added the layer of surface reflectance (SR) values for 3 months to visualize. 
 
-Checkpoint code link: [https://code.earthengine.google.com/01d7eb9aac22c8f5092e86956f76e1a1](https://code.earthengine.google.com/01d7eb9aac22c8f5092e86956f76e1a1).
+Checkpoint code link: [https://code.earthengine.google.com/15b399d5fc780a5bd24f2488f49153c3](https://code.earthengine.google.com/15b399d5fc780a5bd24f2488f49153c3).
