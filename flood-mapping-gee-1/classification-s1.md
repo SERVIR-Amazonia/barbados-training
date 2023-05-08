@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Mapping Flooded Areas using SAR
-parent: Flood Mapping Using Multiple Sensors
+parent: Flood Mapping Using Multiple Sensors in GEE 2
 nav_order: 2
 ---
 

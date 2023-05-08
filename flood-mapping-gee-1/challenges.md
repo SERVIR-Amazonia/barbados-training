@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Challenges - Modify and Improve Your SAR Flooded Classification
-parent: Flood Mapping Using Multiple Sensors
+parent: Flood Mapping Using Multiple Sensors in GEE 2
 nav_order: 3
 ---
 

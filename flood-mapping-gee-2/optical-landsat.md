@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Surface Water Mapping using Optical Imagery
-parent: Flood Mapping Using Multiple Sensors
+parent: Flood Mapping Using Multiple Sensors in GEE 1
 nav_order: 2
 ---
 
