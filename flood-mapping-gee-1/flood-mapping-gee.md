@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Flood Mapping Using Multiple Sensors in GEE 2
+title: Flood Mapping Using Multiple Sensors in GEE 1
 permalink: /flood-mapping-gee-1
 has_children: True
 nav_order: 6

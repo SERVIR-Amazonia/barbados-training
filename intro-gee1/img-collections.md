@@ -151,7 +151,7 @@ The first command takes our stack of location-filtered images and selects the fi
 
 <img align="center" src="../images/intro-gee1-images/30landsatFirst.PNG" hspace="15" vspace="10" width="600">
 
-Code Checkpoint: [https://code.earthengine.google.com/85d55259a7a071179a3b27010f00b01e](https://code.earthengine.google.com/85d55259a7a071179a3b27010f00b01e)
+Code Checkpoint: [https://code.earthengine.google.com/fe44582875009fc3301e224d78960aca](https://code.earthengine.google.com/fe44582875009fc3301e224d78960aca)
 
 Now that we have the tools to examine different image collections, we will explore other datasets. Save your script for your own future use. Then, refresh the Code Editor to begin with a new script for the next section.
 

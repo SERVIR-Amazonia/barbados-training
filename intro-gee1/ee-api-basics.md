@@ -68,4 +68,4 @@ var satellite = ee.String('2A');
 
 This chapter introduced the Earth Engine API. You also learned the basics of JavaScript syntax to be able to use the API in the Code Editor environment. We hope you now feel a bit more comfortable starting your journey to become an Earth Engine developer. Regardless of your programming background or familiarity with JavaScript, you have the tools at your disposal to start using the Earth Engine API to build scripts for remote sensing analysis.
 
-Code Checkpoint: https://code.earthengine.google.com/589d033b45da66080f1eba5f97be6cc9
+Code Checkpoint: [https://code.earthengine.google.com/589d033b45da66080f1eba5f97be6cc9](https://code.earthengine.google.com/589d033b45da66080f1eba5f97be6cc9)

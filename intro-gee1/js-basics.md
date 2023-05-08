@@ -89,4 +89,4 @@ The Code Editor also provides a shortcutâ€”Ctrl + / on Windows, Cmd + / on Macâ€
 
 Congratulations! You have learned enough JavaScript to be able to use the Earth Engine API. In the next section, you will see how to access and execute Earth Engine API functions using JavaScript.
 
-Code Checkpoint: https://code.earthengine.google.com/27a3e63f23fae0285111602312872fe4
+Code Checkpoint: [https://code.earthengine.google.com/27a3e63f23fae0285111602312872fe4](https://code.earthengine.google.com/27a3e63f23fae0285111602312872fe4)
