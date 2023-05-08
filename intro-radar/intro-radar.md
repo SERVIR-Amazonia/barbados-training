@@ -14,8 +14,7 @@ Navigate through the different lesson sections by using the menu on the lefthand
 
 **Instructor(s):** Kyle Woodward
 
-|Time|                                                                    
-Topics|
+|      Time     |                                                                                                       Topics                                                                                                                                     |
 |:-------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 | 09:00 – 09:20 |   Welcome remarks - USAID, CIMH
 | 09:20 – 09:40 |   Summary of trainings to date - Servir Amazonia<br>Group Photo                                          |
