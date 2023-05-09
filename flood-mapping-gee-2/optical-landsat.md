@@ -43,7 +43,7 @@ We only want to focus on our country. Therefore we use the 'ADM0_NAME' property 
 
 ```javascript
 // Derive an Area of Interest 
-var countryName = 'Trinidad and Tobago';
+var countryName = 'Barbados';
 
 var countries = ee.FeatureCollection("FAO/GAUL/2015/level0");
 var aoi = countries.filter(
@@ -56,7 +56,7 @@ Select Landsat 8 images within the specified time range and region. Print the si
 
 ```javascript
 // filter L8 image collection
-var l8images = L8.filterDate(startdate, enddate)
+var l8images = l8.filterDate(startdate, enddate)
     .filterBounds(aoi);
     
 print('Number of Landsat 8 images from filter',l8images.size());    
@@ -140,10 +140,7 @@ var bands = ['green', 'nir'];
 var l8ndwi = l8CloudMasked
     .select(['B3', 'B5'], bands)
     .map(addNdwi);
-```
-Print the first image of the `l8ndwi` collection. Verify that the band NDWI has been added 
 
-```javascript
 print(l8ndwi.first());
 ```
 
@@ -167,7 +164,7 @@ Zoom into an area you are familiar with. Click the **Inspector** tab then click 
 
 <img align="center" src="../images/flood-mapping-gee/05inspect.PNG" hspace="15" vspace="10" width="600">
 
-Code Checkpoint: [https://code.earthengine.google.com/5a541d54b3b1a0310bd061e874dee6d3](https://code.earthengine.google.com/5a541d54b3b1a0310bd061e874dee6d3)
+Code Checkpoint: [https://code.earthengine.google.com/9d07a7a22726772d3c65e02ae0fa1703](https://code.earthengine.google.com/9d07a7a22726772d3c65e02ae0fa1703)
 
 Next we will calculate the NDWI for Landsat 5 and Landsat 7. Please note that the bands designations are different.  Open the Data Catalog information on Landsat 5 and Landsat 7 to see which bands correspond to Green and NIR wavelengths. Remember, you can click on your script's imported datasets at the top to open the Data Catalog information. 
 
@@ -226,9 +223,5 @@ Map.addLayer(frequency.selfMask(),
 
 <img align="center" src="../images/flood-mapping-gee/06frequency.PNG" hspace="15" vspace="10" width="600">
 
-Code Checkpoint: [https://code.earthengine.google.com/df9073ffcfa8e059a5a4ac196b83e055](https://code.earthengine.google.com/df9073ffcfa8e059a5a4ac196b83e055)
-
-Challenge 1: modify the start and end parameters to map surface water detected in one season of the year over several years. 
-
-Challenge 2: The sentinel-2 satellite has a higher spatial resolution than the Landsat satellites. Calculate the NDWI for a sentinel-2 image. 
+Code Checkpoint: [https://code.earthengine.google.com/2515204b7dcf6588b7ae748371509bff](https://code.earthengine.google.com/2515204b7dcf6588b7ae748371509bff)
 
