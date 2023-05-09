@@ -18,7 +18,9 @@ In order to use Earth Engine well, you will need to develop basic skills in remo
 
 
 ## Requirements
-You will need in advance to have a GEE account approved. Go the GEE website and sign up for a new user account: [https://earthengine.google.com/signup/](https://earthengine.google.com/signup/).
+1. You will need in advance to have a GEE account approved. Go the GEE website and sign up for a new user account: [https://earthengine.google.com/signup/](https://earthengine.google.com/signup/).
+2. Click this link to accept the caribbean-trainings GEE script repository - [https://code.earthengine.google.com/?accept_repo=users/kwoodward/caribbean-trainings](https://code.earthengine.google.com/?accept_repo=users/kwoodward/caribbean-trainings).
+
 
 ### Introduction to Theory 
 The Earth Engine API 

@@ -18,7 +18,8 @@ Welcome to an Introduction to Google Earth Engine (GEE)! This workshop will give
 ## Requirements
 
 1. You will need in advance to have a GEE account approved. Go the GEE website and sign up for a new user account: [https://earthengine.google.com/signup/](https://earthengine.google.com/signup/).
-2. Download the [data](https://drive.google.com/drive/folders/1Aov0j6ASs6eQVel4EeiiZrGaDRhq5WGQ?usp=share_link) used in this training: 
+2. Click this link to accept the caribbean-trainings GEE script repository - [https://code.earthengine.google.com/?accept_repo=users/kwoodward/caribbean-trainings](https://code.earthengine.google.com/?accept_repo=users/kwoodward/caribbean-trainings).
+3. Download the [data](https://drive.google.com/drive/folders/1Aov0j6ASs6eQVel4EeiiZrGaDRhq5WGQ?usp=share_link) used in this training 
 
 <img align="center" src="../images/intro-gee-images/01_signup.png" hspace="15" vspace="10" width="600">
 
