@@ -7,7 +7,7 @@ nav_order: 1
 
 # Introduction
 
-Welcome to Flood Mapping Using Multiple Sensors! This workshop contains multiple hands on Google Earth Engine case studies. We will cover the use spectral indices for surface water extraction, and a flooded land cover classification workflow. 
+Welcome to Flood Mapping Using Multiple Sensors! This workshop will conduct a general machine learning classification workflow to map flooded land cover types. 
 
 ## Pre-workshop Set-up
 1. Ensure you are logged into your Google Earth Engine account.
@@ -15,6 +15,6 @@ Welcome to Flood Mapping Using Multiple Sensors! This workshop contains multiple
 
 
 ## Objectives
-1. Understand the general process for filtering image collections, creating composites and indices, and training a classification model using collected data.
-2. Adapt the provided workflow for a different area of interest and time period
-3. Experiment with different ways to improve accuracy of your classification
+1. Understand the general land cover modeling workflow
+2. Be able to adapt the provided workflow for a different area of interest and time period
+3. Experiment with different ways to improve accuracy of your classification, including different model inputs, training data improvement, etc.
