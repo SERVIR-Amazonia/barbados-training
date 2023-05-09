@@ -29,13 +29,16 @@ Step 5. Validate your results
 
 **Identify Area of Interest**
 
-We will utilize the geometry drawing tools in the **Map** window to draw an area of interest. 
+We will import our Barbados boundary file from our GEE Assets. 
 
-In the top-left of the Map window, select the Polygon draw button, then create your polygon. 
+Copy this line of code to construct your `aoi` object.
 
-At the top of your script, rename it from 'geometry' to 'aoi'.
+```js
+var aoi = ee.FeatureCollection("path/to/Barbados").geometry().buffer(1e3);
+```
+Then, in the Assets tab at top-left in the Code Editor, find and open your Barbados FeatureCollection, copy its Asset path to your clipboard and replace "path/to/Barbados" in your script. 
 
-<img align="center" src="../images/flood-mapping-gee/07draw.PNG" hspace="15" vspace="10" width="600">
+<img align="center" src="../images/flood-mapping-gee/18importAOI.PNG" hspace="15" vspace="10" width="600">
 
 **Prepare SAR Data**
 
@@ -47,19 +50,19 @@ var collection = ee.ImageCollection('COPERNICUS/S1_GRD')
 .filter(ee.Filter.eq('orbitProperties_pass', 'ASCENDING'))
 .filterMetadata('resolution_meters','equals',10)
 .filterBounds(aoi)
-.select('VV','VH')
+.select('VV','VH');
 ```
 
 We want to retrieve one S1 scene each from the wet season and the dry season. For each period, we will define a start and end date with which to filter the whole Sentinel S1 collection, select the first scene from the result and clip it to our AOI.
 
 ```js
 //collect one observation each of dry and wet period SAR data
-var dry = collection.filterDate('2022-03-01','2022-03-30').first().clip(aoi);
-var wet = collection.filterDate('2022-08-01','2022-08-30').first().clip(aoi);
+var dry = collection.filterDate('2022-02-01','2022-02-28').first().clip(aoi);
+var wet = collection.filterDate('2022-10-01','2022-10-30').first().clip(aoi);
 
 // Display on map
 var vis = {bands:['VV'],min:-20,max:0};
-Map.centerObject(aoi,12);
+Map.centerObject(aoi,11);
 Map.addLayer(dry,vis,'dry season',false);
 Map.addLayer(wet,vis,'wet season ',false);
 ```
@@ -85,7 +88,7 @@ Map.addLayer(wetFiltered, vis,'wet season - speckle filter',false);
 
 To run a supervised classification, we must collect reference data to "train" the classifier. This involves collecting representative samples of SAR backscatter data for each map class of interest.
 
-Using the Satellite basemap and your wet and dry season SAR layers in your map, we will draw representative polygons for several classes: Open Permanent Water, Flooded Vegetation, Urban/Built Area, and Forest.
+Using the Satellite basemap and your wet and dry season SAR layers in your map, we will draw representative polygons for several classes: Open Permanent Water, Flooded Vegetation, Non-Flooded Vegetation, and Urban/Built Area.
 
 Below is the workflow for creating reference data directly in Earth Engine. We will use Open Permanent Water as the example.
 
@@ -103,11 +106,13 @@ Each geometry layer, imported to your script now as a `FeatureCollection` will r
 
 <img align="center" src="../images/flood-mapping-gee/12openWater.PNG" hspace="15" vspace="10" width="600">
 
-Repeat these steps for each of the remaining map classes: Flooded Vegetation, Urban/Built Area, and Forest. 
+Repeat these steps for each of the remaining map classes: Flooded Vegetation, Non-Flooded Vegetation, and Urban/Built Area.
 
 **Remember**: since each geometry layer represents its own map class, the value for the 'landcover' property must change when you are at the configuration step. For example, use landcover value of 1 for the next geometry layer that you create. 
 
 To get through this demonstration, shoot for 3 or 4 large polygons or 7 or 8 smaller ones per class. We can refine the quality of our reference data later if we have time.
+
+*Potential Flooded Natural Vegetation (Wetland Areas): Graeme Hall Swamp, Long Pond, Green Pond and Chancery Lane*
 
 **Generate Training and Testing Data**
 
@@ -115,10 +120,11 @@ Now that we have reference polygons for our four map classes, we will merge thei
 
 ```js
 // Merge training FeatureCollections
-var newFc = openWater.merge(floodedVegetation).merge(urban).merge(forest);
+var newFc = openWater.merge(floodedVegetation).merge(nonFloodedVegetation).merge(urban);
+print(newFc.aggregate_histogram('landcover'));
 ```
 
-Code Checkpoint: [https://code.earthengine.google.com/03c9175f18ca5d47e558e401f5280896](https://code.earthengine.google.com/03c9175f18ca5d47e558e401f5280896)
+Code Checkpoint: [https://code.earthengine.google.com/fdce670033bb2304b77d5fdfc70991b1](https://code.earthengine.google.com/fdce670033bb2304b77d5fdfc70991b1)
 
 Next, we will use the merged `FeatureCollection` of reference polygons to extract the SAR backscatter pixel values for each landcover. The polygons within the `newFc` `FeatureCollection` are overlaid on the image, and each pixel is converted to a point containing the image's pixel values and the other properties inherited from the polygon (in our case 'landcover' property). After you run this, note in the **Console** the total size of reference points we now have to train and validate our map. 
 
@@ -178,7 +184,7 @@ Display the results, modify the color palette if needed.
 
 ```js
 // Display the results, adjust colors according to your land cover stratification
-var classVis = {min:0,max:3,palette:['blue','cyan','red','green']}
+var classVis = {min:0,max:3,palette:['blue','cyan','green','red']}
 Map.centerObject(classified,12)
 Map.addLayer(classified,classVis,'classified')
 ```
@@ -232,21 +238,24 @@ For this methodology to hold up to scientific scrutiny, we would also want to co
 Now that we have a trained model, we could _deploy_ it, or apply it to other Sentinel 1 SAR observations quite easily in Earth Engine. Change the start and end date in the `.filterDate` call below to any date range starting in 2015 (Sentinel1 data availability). Remember that the `first()` call is taking the first SAR image within that date range.
 
 ```js
-// Classify another Sentinel SAR observation
+/// Classify another Sentinel SAR observation
 // one SAR observation from dry season
-var newObsDry = collection.filterDate('2018-03-01','2018-03-31').first().clip(aoi);
+var newObsDry = collection.filterDate('2018-02-01','2018-02-28').first().clip(aoi);
 // one SAR observation from wet season
-var newObsWet = collection.filterDate('2018-08-01','2018-08-31').first().clip(aoi);
+var newObsWet = collection.filterDate('2018-10-01','2018-10-31').first().clip(aoi);
 
 // combine the two season observations
 var newObsFinal = ee.Image.cat(newObsDry,newObsWet).rename(bands);
 print('New Obs Final', newObsFinal);
 
+// apply smoothing filter
 var newObsFiltered = newObsFinal.focal_mean(smoothingRadius,'circle','meters');
+
+// classify new observation band stack
 var newObsClassified = newObsFiltered.select(bands).classify(classifier)
 ```
 
-Code Checkpoint: [https://code.earthengine.google.com/8d406f19f6226df89ecbb4b77c88364a](https://code.earthengine.google.com/8d406f19f6226df89ecbb4b77c88364a)
+Code Checkpoint: [https://code.earthengine.google.com/4a0badea503fdb958d6e74e62996f55c](https://code.earthengine.google.com/4a0badea503fdb958d6e74e62996f55c)
 
 <img align="center" src="../images/flood-mapping-gee/17newObsClassif.PNG" hspace="15" vspace="10" width="600">
 
