@@ -17,9 +17,8 @@ Navigate through the different lesson sections by using the menu on the lefthand
 
 |      Time     |                                                                                                       Topics                                                                                                      |
 |:-------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| 09:00 – 09:20 |                                  Welcome remarks - USAID, CMO           |
-| 09:20 – 09:40 |                                  Summary of trainings to date - Servir Amazonia<br>Group Photo           |
-| 09:40 – 10:10  |Setup Check<br>Introduction Basics                                                                                |
+| 09:00 – 09:30 |                   Introduction to GEE           |
+| 09:30 – 10:10  |Setup Check<br>Introduction Basics                                                                                |
 | 10:10 – 10:45  |Navigating in the Code Editor<br>JavaScript Basics<br>Earth Engine API Basics                                                                                |
 | 10:45 - 11:00   |                                Coffee Break                                 |
 | 11:00 – 12:30 |                           Accessing Images in GEE
