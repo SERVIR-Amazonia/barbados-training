@@ -11,7 +11,7 @@ nav_order: 3
 
 This exercise will demonstrate how to create a cloud-cloud shadow mask using Earth Engine over Landsat imagery. We use the quality assessment (QA) pixel band to create a cloud and shadow mask. Bits 3 and 4 are cloud and cloud shadow, respectively. We define a function which always includes the ***return*** command to provide the resultant product. 
 
-<img align="center" src="../images/intro-gee-images/47_cloudMaskFuncPic.png" hspace="15" vspace="10" width="600">
+<img align="center" src="../images/intro-gee-images/47_cloudMaskFuncPic.PNG" hspace="15" vspace="10" width="600">
 
 The QA_PIXEL band is the information channel that characterizes the quality of the pixel regarding cloud and cloud shadow. How to use this info?...  If we want to know about a specific function we can go to the ‘Docs’ section and type the function name, then click on the function and see the specification, parameters and application of it. Look closely at the type of object you’re applying to. In this case, we are looking for the bitwiseAnd operator for the object *image* (ee.Image).
 
