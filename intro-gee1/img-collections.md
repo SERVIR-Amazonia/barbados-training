@@ -491,4 +491,30 @@ Uncheck the population layer and zoom in to examine the patterns of topography. 
 
 Code Checkpoint: [https://code.earthengine.google.com/d4b88c84ae5d9051f76981fea38ae6c3](https://code.earthengine.google.com/d4b88c84ae5d9051f76981fea38ae6c3)
 
+**Allen Coral Atlas (ACA)**
+The Allen Coral Atlas dataset maps the geomorphic zonation and benthic habitat for the world's shallow coral reefs at 5 m pixel resolution. Also included is a global reef extent product that maps additional reef areas unable to be explicitly included in the geomorphic and benthic mapping. The underlying satellite image data are temporal composites of PlanetScope satellite imagery spanning 2018-2020.
+
+
+```javascript
+var dataset = ee.Image('ACA/reef_habitat/v2_0');
+
+// Barbados geographic coordinates.
+Map.setCenter(-59.5708, 13.1834, 13);
+Map.setOptions('SATELLITE');
+
+// The visualisations are baked into the image properties.
+
+// Example mask application.
+var reefExtent = dataset.select('reef_mask').selfMask();
+Map.addLayer(reefExtent, {}, 'Global reef extent');
+
+// Geomorphic zonation classification.
+var geomorphicZonation = dataset.select('geomorphic').selfMask();
+Map.addLayer(geomorphicZonation, {}, 'Geomorphic zonation');
+
+// Benthic habitat classification.
+var benthicHabitat = dataset.select('benthic').selfMask();
+Map.addLayer(benthicHabitat, {}, 'Benthic habitat');
+```
+
 Take a moment to look through all of the different layers that we have explored so far. You can open your scripts one at a time or in different tabs, or even by copying the code into one single script. Turn the layers on and off, pan around, and zoom in and out accordingly to visualize the different datasets on the map. 
