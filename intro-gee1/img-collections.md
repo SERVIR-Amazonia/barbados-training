@@ -492,7 +492,8 @@ Uncheck the population layer and zoom in to examine the patterns of topography. 
 Code Checkpoint: [https://code.earthengine.google.com/d4b88c84ae5d9051f76981fea38ae6c3](https://code.earthengine.google.com/d4b88c84ae5d9051f76981fea38ae6c3)
 
 **Allen Coral Atlas (ACA)**
-The Allen Coral Atlas dataset maps the geomorphic zonation and benthic habitat for the world's shallow coral reefs at 5 m pixel resolution. Also included is a global reef extent product that maps additional reef areas unable to be explicitly included in the geomorphic and benthic mapping. The underlying satellite image data are temporal composites of PlanetScope satellite imagery spanning 2018-2020.
+
+The Allen Coral Atlas dataset maps the geomorphic zonation and benthic habitat for the world's shallow coral reefs at 5 m pixel resolution. Also included is a global reef extent product that maps additional reef areas unable to be explicitly included in the geomorphic and benthic mapping. The product used temporal composites of PlanetScope satellite imagery spanning 2018-2020.
 
 
 ```javascript
