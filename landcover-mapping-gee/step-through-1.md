@@ -9,11 +9,11 @@ nav_order: 2
 
 # Overview 
 
-In this workflow, we will create an archive of Landsat imagery from Landsat missions 5 through 9, filter the image archive down to a desired time period of interest, then use the data to classify land cover presence using a Random Forest classification model. 
+In this workflow, we will create an archive of Landsat imagery from Landsat missions 5 through 9, filter the image archive down to a desired time period of interest, then use the data to classify land cover using a Random Forest classification model. 
 
 Follow along by copying and pasting each code block in the lesson into your own blank script. At the end you will have the entire workflow saved to a script file on your own GEE account.
 
-# Setting up Area of Interest
+## Setting up Area of Interest
 
 An area of interest can be uploaded from a local shapefile, drawn on the map, or derived from a pre-existing dataset in the Earth Engine catalogue. Here we will use the Food and Agriculture Organization's Global Administrative Units Layer (FAO GAUL) dataset to derive our AOI. At the top of the code editor, type in the search bar 'FAO GAUL Global Level 0'. We see that it is a `FeatureCollection` containing global country boundaries.
 
@@ -35,7 +35,7 @@ Map.centerObject(aoi,12);
 
 <img align="center" src="../images/landcover-mapping/aoi.PNG" hspace="15" vspace="10" width="600">
 
-# Gathering Reference Land Cover Data
+## Gathering Reference Land Cover Data
 
 Your reference data can be produced in a number of ways. Two common ones are photo interpretation (digitizing points/polygons over reference basemap imagery), or deriving it from another pre-existing dataset. In this workshop we will do the latter, using the [Copernicus 100m Global Land Cover](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_Landcover_100m_Proba-V-C3_Global) dataset that is available in the Earth Engine data catalog. This dataset has a 'discrete_classification' band containing a multi-tiered typology. For demonstration purposes, this much larger classification schema has been collapsed down into a basic 8 Class schema: Agriculture, Bare Land, Herbaceous, Forest, Shrub, Urban, Water, and Wetland. 
 
@@ -67,7 +67,7 @@ Map.addLayer(refLandCover,lcViz,'Copernicus 8 Class Landcover');
 
 <img align="center" src="../images/landcover-mapping/landcover.PNG" hspace="15" vspace="10" width="600">
 
-# Preprocessing Image Collections 
+## Preprocessing Image Collections 
 
 We always want to apply filters to `ImageCollections` as early in our workflow as we can to reduce the amount of effort the GEE servers will require. We already know the area that we'd like to pull data for (our AOI), and we can define a date range of images also. 
 
@@ -245,6 +245,8 @@ print('processed Landsat Collection',landsatFiltered);
 Map.addLayer(landsatFiltered,{},'Landsat Collection',false);
 ```
 
+## Compositing the Landsat Collection
+
 To train a model we must first transform our collection of Landsat images into one composite image, so that the bands of that image can be used as variables for the model. This transformation requires a statistical 'reducer' - i.e. what statistic will we use to reduce a collection of pixel values into one? Here we'll use `.median()` but there are many others to choose from. 
 
 ```javascript
@@ -266,7 +268,11 @@ Map.addLayer(composite, visParamPreProcessed, 'Median Composite');
 
 <img align="center" src="../images/landcover-mapping/composite.PNG" hspace="15" vspace="10" width="600">
 
-In computationally-intensive workflows, it is best-practice to export intermediary results to an asset, and use that exported asset in subsequent steps. Copy these two methods in your code and run the 'ToAsset' task that appears in the Task pane at top-right in the Code Editor. You must change the `assetId` path to one existing in your own user or cloud project asset folders.
+## Exports (Optional)
+
+In computationally-intensive workflows, it is best-practice to export intermediary results to an asset, and use that exported asset in subsequent steps. We won't need to do that for this demo to run, but please copy this code block into your script so that you have it.
+
+If you choose to try the export step, run the 'ToAsset' task that appears in the Task pane at top-right in the Code Editor. You must change the `assetId` path to one existing in your own user or cloud project asset folders.
 
 ```javascript
 //--------------------------------------------------------------

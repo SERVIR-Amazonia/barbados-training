@@ -40,9 +40,9 @@ print('First sample',samples.first());
 print('Samples Breakdown',samples.aggregate_histogram(label));
 ```
 
-<img align="center" src="../images/landcover-mapping/sampleBreakdown.PNG" hspace="15" vspace="10" width="600">
+<img align="center" src="../images/landcover-mapping/sampleBreakdown.PNG" hspace="5" vspace="5" width="300">
 
-You may notice the the Sample Breakdown may be imbalanced across all classes. While we request the same number of points setting `numPoints`, the natural area representation of each class likely differs a lot. In these cases, you may want to 'oversample' rare classes and 'undersample' common classes. This can be done by defining `classValues` and `classPoints` in `.stratifiedSample()`.
+You may notice the the Sample Breakdown may be imbalanced across all classes. While we request the same number of points setting `numPoints`, the area representated by each class is likely to differ. In these cases, you may want to 'oversample' rare classes and 'undersample' common classes. This can be done by defining `classValues` and `classPoints` in `.stratifiedSample()`.
 
 ## Split into Train/Test
 
@@ -99,11 +99,29 @@ print('RF error matrix [Training Set]: ', classifier.confusionMatrix());
 print('RF accuracy [Training Set]: ', classifier.confusionMatrix().accuracy());
 ```
 
-<img align="center" src="../images/landcover-mapping/trainConfMatrix.PNG" hspace="15" vspace="10" width="600">
+<img align="center" src="../images/landcover-mapping/trainConfMatrix.PNG" hspace="5" vspace="5" width="300">
 
 Seem too good to be true? Of course, because these are the points the model was trained on, it has seen every one of these instances already. To get a better estimate of the model's ability to predict on unseen observations, we use the Testing set. 
 
-<img align="center" src="../images/landcover-mapping/testConfMatrix.PNG" hspace="15" vspace="10" width="600">
+```javascript
+// classify test set with classifier trained on training set
+var classificationVal = testing.classify(classifier);
+print('Classified points', classificationVal.limit(5));
+
+// Create confusion matrix.
+var confusionMatrix = classificationVal.errorMatrix({
+  actual: label, 
+  predicted: 'classification'
+});
+
+// Print Confusion Matrix and accuracies.
+print('Confusion matrix [Testing Set]:', confusionMatrix);
+print('Overall Accuracy [Testing Set]:', confusionMatrix.accuracy());
+print('Producers Accuracy [Testing Set]:', confusionMatrix.producersAccuracy());
+print('Users Accuracy [Testing Set]:', confusionMatrix.consumersAccuracy());
+```
+
+<img align="center" src="../images/landcover-mapping/testConfMatrix.PNG" hspace="5" vspace="5" width="300">
 
 You'll find these accuracy metrics to be a bit more in line with your own inspection of the result on the map.
 
