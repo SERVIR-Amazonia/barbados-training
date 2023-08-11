@@ -23,7 +23,7 @@ There are several ways we could make our RF model more robust...
 
 The first is in the number of 'trees' in the Random Forest. You can change that in the `ee.Classifier.smileRandomForest()` function and observe whether any of the accuracy metrics have improved. 
 
-## Sample Data
+## Reference Data & Input Data
 
 Beyond the model structure itself, we can also provide more and/or better reference data to the model. The first improvement would be to increase the amount of total samples. Try a number between 200 and 500 per class. 
 
@@ -31,8 +31,10 @@ To provide better quality reference data, we can look for another source of Land
 
 <img align="center" src="../images/landcover-mapping/BBlandcover.PNG" hspace="15" vspace="10" width="600">
 
+You can also experiment with using other input satellite data other than Landsat. For instance, Sentinel-1 and 2, and others. 
+
 I have another script, called 
-[LandCoverMappingS1S2_BBLandsSurveysRefData](https://code.earthengine.google.com/?scriptPath=users%2Fkwoodward%2Fcaribbean-trainings%3Abarbados-trainings%2FLandCoverMappingS1S2_BBLandsSurveysRefData) that utilizes this dataset with Sentinel-1 SAR + Sentinel-2 Optical training data. Check it out and see if it sparks any ideas.
+[LandCoverMappingS1S2_BBLandsSurveysRefData](https://code.earthengine.google.com/?scriptPath=users%2Fkwoodward%2Fcaribbean-trainings%3Abarbados-trainings%2FLandCoverMappingS1S2_BBLandsSurveysRefData) that is an alteration of the one we did today. The differences are that the reference land cover data is the BB Lands & Surveys sample and the input satellite data is Sentinel-1 SAR and Sentinel-2. Check it out and see if it sparks any ideas.
 
 ## Happy Coding!
 Do some experimentation, collaborate with your colleagues, ask your instructor questions - Good luck!
