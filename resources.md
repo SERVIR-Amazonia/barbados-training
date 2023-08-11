@@ -7,5 +7,9 @@ nav_order: 11
 # Resources
 Add links and general resources here.
 
-SAR Handbook: https://servirglobal.net/Global/Articles/Article/2674/sar-handbook-comprehensive-methodologies-for-forest-monitoring-and-biomass-estimation
+SAR Handbook: [https://servirglobal.net/Global/Articles/Article/2674/sar-handbook-comprehensive-methodologies-for-forest-monitoring-and-biomass-estimation](https://servirglobal.net/Global/Articles/Article/2674/sar-handbook-comprehensive-methodologies-for-forest-monitoring-and-biomass-estimation)
+
+Capstone Presentation: [https://docs.google.com/presentation/d/1hd__bCwB80nNgA1E13h_9auO1Cts9QmBgdj0XhD2U9o/edit?usp=sharing](https://docs.google.com/presentation/d/1hd__bCwB80nNgA1E13h_9auO1Cts9QmBgdj0XhD2U9o/edit?usp=sharing)
+
+Capstone Brainstorm Document: [https://docs.google.com/document/d/1ZlqamYWPOyundBj6uyvHF1uQMovgQIlAbwtS-fVB3bY/edit?usp=sharing](https://docs.google.com/document/d/1ZlqamYWPOyundBj6uyvHF1uQMovgQIlAbwtS-fVB3bY/edit?usp=sharing)
 
