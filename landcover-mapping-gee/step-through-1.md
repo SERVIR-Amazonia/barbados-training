@@ -245,7 +245,7 @@ print('processed Landsat Collection',landsatFiltered);
 Map.addLayer(landsatFiltered,{},'Landsat Collection',false);
 ```
 
-To train a model we must first transform our collection of Landsat images into one composite image, so that the bands of that image can be used for training and validation. This transformation requires a statistical 'reducer' - i.e. what statistic will we use to reduce a collection of pixel values into one? Here we'll use `.median()` but there are many others to choose from. 
+To train a model we must first transform our collection of Landsat images into one composite image, so that the bands of that image can be used as variables for the model. This transformation requires a statistical 'reducer' - i.e. what statistic will we use to reduce a collection of pixel values into one? Here we'll use `.median()` but there are many others to choose from. 
 
 ```javascript
 //--------------------------------------------------------------
@@ -257,7 +257,8 @@ To train a model we must first transform our collection of Landsat images into o
 // We will work with the Median composite.
 var composite = landsatFiltered.median().clip(aoi);
 var bands = composite.bandNames().remove('QA_PIXEL');
-print('bands to pass to classifier',bands);
+composite = composite.select(bands);
+print('bands to pass to classifier',composite.bandNames());
 
 // Add composite to the map.
 Map.addLayer(composite, visParamPreProcessed, 'Median Composite');
@@ -265,7 +266,7 @@ Map.addLayer(composite, visParamPreProcessed, 'Median Composite');
 
 <img align="center" src="../images/landcover-mapping/composite.PNG" hspace="15" vspace="10" width="600">
 
-In computationally-intensive workflows, it is best-practice to export intermediary results to an asset, and use that exported asset in subsequent steps. Copy these two methods in your code and run the ToAsset task. You must change the `assetId` path to one existing in your own user or cloud project asset folders.
+In computationally-intensive workflows, it is best-practice to export intermediary results to an asset, and use that exported asset in subsequent steps. Copy these two methods in your code and run the 'ToAsset' task that appears in the Task pane at top-right in the Code Editor. You must change the `assetId` path to one existing in your own user or cloud project asset folders.
 
 ```javascript
 //--------------------------------------------------------------
