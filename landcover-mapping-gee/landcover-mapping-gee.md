@@ -19,7 +19,7 @@ Navigate through the different lesson sections by using the menu on the lefthand
 |:-------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 | 09:00 – 10:00 |                          Capstone Prep Session                                |
 | 10:00 – 10:15 |                              Coffee Break                                     |
-| 11:15 – 12:00 | Stepping through the Scripts:<br>Part 1 - Data Preprocessing                  |
+| 10:15 – 12:00 | Stepping through the Scripts:<br>Part 1 - Data Preprocessing                  |
 | 12:00 – 13:00 |                               Lunch                                           | 
-| 13:00 – 14:00 | Stepping through the Scripts:<br>Part 2 - Model Training & Prediction         |
-| 14:00 – 15:00 |    Complete Challenge(s)<br>Showcase Your Classification Product<br>Feedback             |
+| 13:00 – 13:30 | Stepping through the Scripts:<br>Part 2 - Model Training & Prediction         |
+| 13:30 – 15:00 |    Complete Challenge(s)<br>Showcase Your Classification Product<br>Feedback             |
