@@ -25,13 +25,14 @@ If you have any questions about the material, please submit a question below! We
 |-----------------|-----------------------------------------------------|------------------|-----------|
 | 1               | Introduction to GIS with QGIS                       | December 1, 2022 | Virtual   |
 | 2               | Introduction to Remote Sensing                      | January 24, 2023 | Virtual   |
-| 3               | Introduction to Radar - SAR                         | May 15 2023      | In-person |
+| 3               | Introduction to Radar - SAR                         | May 15, 2023      | In-person |
 | 4-5             | Introduction to Google Earth Engine                 | May 16 and 17 2023      | In-person |
 | 6-7             | Flood Mapping Using Multiple Sensors (e.g., radar, optical, high-resolution imagery)| May 18 and 19 2023       | In-person |
-| 8               | Mangroves Mapping Using Multiple Sensors            | September 2023   | Virtual   |
-| 9               | Map Validation Using Collect Earth Online           | September 2023   | Virtual   |
-| 10-11           | Change Detection (Flood or Mangroves)               | September 2023   | Virtual   |
-| 12              | Capstone and Follow-up Support                      | September 2023   | Virtual   |
+| 8               | Mangroves Mapping Using Multiple Sensors            | August 17, 2023   | Virtual   |
+| 9               | Map Validation Using Collect Earth Online           | August 31, 2023   | Virtual   |
+| 10              | Time Series Change Detection with Landtrendr        | September 14, 2023   | Virtual   |
+| 11              | Flood Mapping and Time Series Modeling with HydraFloods | September 28, 2023 | Virtual |
+| 12              | Capstone and Follow-up Support                      | October 12, 2023   | Virtual   |
 
 ## Feedback
 If you have any feedback from any of the workshops, please fill out the form below. It helps us improve future workshops!
