@@ -11,41 +11,15 @@ nav_order: 6
 
 In this workflow, we will create a stratified random sample of a land cover map, and use to conduct an accuracy assessment and area estimate of the strata in the land cover map.  We will make the stratified random sample in GEE, collect validation data at those points in CEO, and then calculate error matrices and estimate the true area of each land cover stratum in Google Sheets or Microsoft Excel.
 
-# Create Classification Map in GEE
+# Export Classification Map in GEE
 
-In the [Advanced Google Earth Engine - Change Detection 1](https://servir-amazonia.github.io/suriname-training/change-detection-1) module, we made a random forest land cover classification for two years.  Here, we will write a short snippet of code to export our land cover classification for 2022 (Year 2) as a GEE Asset.
+In the [Land Cover Mapping](https://servir-amazonia.github.io/barbados-training/landcover-mapping-gee) module, we made a random forest land cover classification for 2020. That land cover product has been exported for us to use in this workshop by adding in an `Export` function at the bottom of last workshop's script. ([script link]((https://code.earthengine.google.com/?accept_repo=users%2Febihari%2FSurinameWS&scriptPath=users%2Fkwoodward%2Fcaribbean-trainings%3Abarbados-trainings%2FLandCoverMappingLandsat_CopernicusRefData))).  
 
-Open your script titled **Change Detection - Two Date**, insert into the script, and run the script.
-
-```javascript
-//--------------------------------------------------------------
-// Export Classifications
-//--------------------------------------------------------------
-
-// Export 2022 classified map as a GEE Asset to use for further analysis
-// change the location to your root GEE folder
-Export.image.toAsset({
-  image: RFclassification_y2,
-  description: 'toasset_LCclassification2022_Suriname',
-  assetId: 'users/ebihari/LCclassification2022_Suriname',
-  region: aoi,
-  scale: 30,
-  crs:'EPSG:4326',
-  maxPixels: 1e13
-});
-```
-
-Now, when we run our code, this export task should appear in the **Tasks** tab.  
-
-<img align="center" src="../images/ceo/export_task.png" hspace="15" vspace="10" width="400">
-
-Click **Run** on the task, filling out the names and locations you want the file to be put.
-
-<img align="center" src="../images/ceo/export_run.png" hspace="15" vspace="10" width="400">
+<img align="center" src="../images/ceo/barbadosLC2020Catalog.PNG" hspace="15" vspace="10" width="400">
 
 # Create Validation Points in GEE
 
-In the new GEE script you created called **Map Validation - Sample Design**, import the land cover classification asset.  I have made land cover classification asset public, so you can use mine one `users/ebihari/LCclassification2022_Suriname` or your own.
+In the new GEE script you created called **Map Validation - Sample Design**, import the land cover classification asset.
 
 ```javascript
 //--------------------------------------------------------------
@@ -53,28 +27,48 @@ In the new GEE script you created called **Map Validation - Sample Design**, imp
 //--------------------------------------------------------------
 
 // import land cover classification from previous activity 
-var LC = ee.Image('users/ebihari/LCclassification2022_Suriname')
+var LC = ee.Image('projects/caribbean-trainings/assets/barbados-2022/images/LandCover2020_Landsat');
+
+// Define visualization parameters
+var visParam = {min:1,
+max:8,
+palette:[
+'f096ff', // ag - pink
+'b4b4b4', // bare - grey
+'ffff4c', // herbaceous - yellow
+'007800', // forest - green
+'ffbb22', // shrub - orange
+'fa0000', // urban - red 
+'0032c8', // water - blue
+'0096a0' // wetland - teal
+]};
 
 // add classified image to map
-Map.addLayer(LC, {min: 1, max: 5, 
-            palette: ['00a661','00a0cd','a40000', 'd5ff6a','d3d2cb']}, 
+Map.addLayer(LC, 
+             visParam, 
             'RF landcover classification');
+            
+Map.centerObject(LC.geometry(), 12);
 ```
 
-Then, we create a stratified random sample with 10 points in each of the 5 land cover classes.  In a real project, you would want to collect many more validation points for this big of an AOI, but we will keep it simple for this exercise.
+Then, we create a stratified random sample with 10-20 points in each of the 8 land cover classes.  In a real project, you would want to collect many more validation points for this big of an AOI, but we will keep it simple for this exercise.
 
 ```javascript
 //--------------------------------------------------------------
 // Create Stratified Random Sample
 //--------------------------------------------------------------
 
-// create stratified random sample from the land cover classification map
-// values in 'class' property: 
-// 1: 'forest',
-// 2: 'water',
-// 3: 'urban',
-// 4: 'agriculture',
-// 5: 'bare soil'
+/* create stratified random sample from the land cover classification map
+ values in 'class' property: 
+ 1: 'agriculture',
+ 2: 'bare',
+ 3: 'herbaceous',
+ 4: 'forest',
+ 5: 'shrub',
+ 6: 'urban',
+ 7: 'water',
+ 8: 'wetland'
+*/
 var samplePts = LC.stratifiedSample({
   // total # points
   numPoints:50, 
@@ -83,21 +77,21 @@ var samplePts = LC.stratifiedSample({
   scale:30, 
   projection:'EPSG:4326', 
   seed:1010, 
-  classValues:[1,2,3,4,5],
+  classValues:[1,2,3,4,5,6,7,8],
   // # points in each class
-  classPoints:[10,10,10,10,10], 
+  classPoints:[10,20,10,10,10,10,20,20], 
   dropNulls:true, 
   tileScale:2, 
   geometries:true});
 print('Sample points:', samplePts);
-
+print('Breakdown:',samplePts.aggregate_histogram('classification'));
 // Add points to the map
 Map.addLayer(samplePts,{},'sample points');
 ```
 
-<img align="center" src="../images/ceo/validationpoints.png" hspace="15" vspace="10" width="600">
+<img align="center" src="../images/ceo/4H_samplesonmap.png"  vspace="10" width="600"> 
 
-Now, we export these sample points as a Google Drive file in .csv format.  We need to do some extra formatting to get the data in a format that CEO and SEPAL will accept.  We need to add columns called `PLOTID`, `LON`, and `LAT`, `SAMPLEID`, and `classification_readable` (which is just a column for the classification values in a readable format ("forest", "water", etc.), and will come in handy when doing our final analysis).
+Now, we export these sample points as a Google Drive file in .csv format.  We need to do some extra formatting to get the data in a format that CEO and SEPAL will accept.  We need to add columns called `PLOTID`, `LON`, `LAT`, `SAMPLEID`, and `classification_readable` (which is just a column for the classification values in a readable format ("forest", "water", etc.), and will come in handy when doing our final analysis).
 
 ```javascript
 //--------------------------------------------------------------
@@ -106,11 +100,14 @@ Now, we export these sample points as a Google Drive file in .csv format.  We ne
 
 // create a dictionary to store class names
 var classLookup = ee.Dictionary({
-  1: 'forest',
-  2: 'water',
-  3: 'urban',
-  4: 'agriculture',
-  5: 'bare soil'
+  1: 'agriculture',
+  2: 'bare',
+  3: 'herbaceous',
+  4: 'forest',
+  5: 'shrub',
+  6: 'urban',
+  7: 'water',
+  8: 'wetland'
 });
 
 // write a function to rename the columns 
@@ -137,11 +134,11 @@ print('Sample points with PLOTID and readable class:', samplePts_CEO);
 print("Class labels and number of samples:",
       samplePts_CEO.aggregate_histogram('classification_readable'));
 
-// Export points to Google Drive to use in further analysis
+// Export points as a CSV to Google Drive to use in further analysis
 Export.table.toDrive({
   collection: samplePts_CEO,
-  description: 'todrive_LCsamplepoints2022_Suriname',
-  fileNamePrefix: 'LCsamplepoints2022_Suriname',
+  description: 'todrive_LCsamplepoints2022',
+  fileNamePrefix: 'LCsamplepoints2022',
   selectors: 'LON,LAT,PLOTID,SAMPLEID,classification,classification_readable'
 });
 ```
@@ -211,8 +208,8 @@ print("Pixel Counts as FeatureCollection", pixelCounts_fc);
 // Export the FeatureCollection as a CSV to Google Drive for further analysis
 Export.table.toDrive({
   collection: pixelCounts_fc,
-  description: 'todrive_LCpixelcounts2022_Suriname',
-  fileNamePrefix: 'LCpixelcounts2022_Suriname',
+  description: 'todrive_LCpixelcounts2020',
+  fileNamePrefix: 'LCpixelcounts2020',
   fileFormat: 'CSV'
 });
 ```
@@ -302,11 +299,11 @@ for (var i = 0; i < 5; i++) {
 Map.add(legend);  
 ```
 
-Code Checkpoint: [https://code.earthengine.google.com/?scriptPath=users%2Febihari%2FSurinameWS%3AMap%20Validation%20-%20Sample%20Design](https://code.earthengine.google.com/?scriptPath=users%2Febihari%2FSurinameWS%3AMap%20Validation%20-%20Sample%20Design)
+Code Checkpoint: [https://code.earthengine.google.com/0cd336dd3150cbfb70df6491e9c34b7a?accept_repo=users%2Febihari%2FSurinameWS](https://code.earthengine.google.com/0cd336dd3150cbfb70df6491e9c34b7a?accept_repo=users%2Febihari%2FSurinameWS)
 
 # Collect Validation Data in CEO
 
-Log in to CEO.  On the main CEO page, in the search bar at the top left, search for an institution called “Suriname Geospatial Workshop.” Click `Visit`.
+Log in to CEO.  On the main CEO page, in the search bar at the top left, search for an institution called “Barbados Geospatial Workshop.” Click `Visit`.
 
 <img align="center" src="../images/ceo/CEO_homepage.png" hspace="15" vspace="10" width="600">
 
@@ -316,7 +313,7 @@ On the institution's home page, click on `Imagery`.
 
 <img align="center" src="../images/ceo/CEO_imagery.png" hspace="15" vspace="10" width="700">
 
-Click on the `edit` button for the last imagery on the page called "Global Mangrove Forests Distribution".  Here, you can see how to add a new type of imagery to a project.  There are some data sets already available in CEO, like Sentinel and Planet, but you can also import any public GEE `Image` or `ImageCollection` or any private GEE asset.  You just need its asset ID, a start and end date, and some parameters for its visualization.
+Click on the `Add New Imagery` button.  Here, you can see how to add a new type of imagery to a project.  There are some data sets already available in CEO, like Sentinel and Planet, but you can also import any public GEE `Image` or `ImageCollection` or any private GEE asset.  You just need its asset ID, a start and end date, and some parameters for its visualization.
 
 <img align="center" src="../images/ceo/CEO_imagery2.png" hspace="15" vspace="10" width="700">
 
@@ -326,53 +323,55 @@ On the institution’s home page, go to the `Projects` tab and click `+ Create N
 
 <img align="center" src="../images/ceo/CEO_projectpage.png" hspace="15" vspace="10" width="700">
 
-On this first `Project Overview` page, under `Select Template`, select the `Suriname land cover map validation` project that is already present in the institution, and click `Load`.  All of the project parameters should now be identical to the project that has already been created.
+<!-- On this first `Project Overview` page, under `Select Template`, select the `Barbados land cover map validation` project that is already present in the institution, and click `Load`.  All of the project parameters should now be identical to the project that has already been created. -->
 
-You can also create a project from scratch, but for the sake of simplicity, we will use this project template that has already been made for you.  If you want to model a CEO project off of another project but create entirely new plots/samples or survey questions, you can uncheck `Copy Template Plots and Samples` and `Copy Template Widgets`.
+<!-- You can also create a project from scratch, but for the sake of simplicity, we will use this project template that has already been made for you.  If you want to model a CEO project off of another project but create entirely new plots/samples or survey questions, you can uncheck `Copy Template Plots and Samples` and `Copy Template Widgets`. -->
 
-Then, **add YOUR NAME to the end of the project name**.  This way, everyone in the workshop will have their own project to work in.  
+For Name, use this title: 'Land Cover Sample Interpretation - YOUR NAME' - and use your own name. This way, everyone in the workshop will have their own project to work in and we can discern the differences.  
 
 <img align="center" src="../images/ceo/CEO_newproject.png" hspace="15" vspace="10" width="700">
 
 Click `Next`.
 
-On the `Imagery Selection` page, you can change the imagery that will be available when collecting data.  You will see the default CEO imagery data sets under `Public Imagery`, as well as the imagery data sets you or someone else manually uploaded to your institution under `Private Institution Imagery `.  Here, we have already imported several useful data sets, such as some elevation, PALSAR and Sentinel 1 radar, and Sentinel 2 optical imagery.
+On the `Imagery Selection` page, you can change the imagery that will be available when collecting data.  You will see the default CEO imagery data sets under `Public Imagery`, as well as the imagery data sets you or someone else manually uploaded to your institution under `Private Institution Imagery `.
 
 <img align="center" src="../images/ceo/CEO_imageryselection.png" hspace="15" vspace="10" width="700">
 
-On the `Plot Design` page, you cannot currently change the parameters because `Copy Template Plots and Samples` was checked on the `Project Overview` page.  There are 50 plots centered on our validation points exported from GEE.  They are square and 30m in width because the Landsat data used for our classification has a resolution of 30m.
+<!-- On the `Plot Design` page, you cannot currently change the parameters because `Copy Template Plots and Samples` was checked on the `Project Overview` page.  There are 50 plots centered on our validation points exported from GEE.  They are square and 30m in width because the Landsat data used for our classification has a resolution of 30m.
 
-<img align="center" src="../images/ceo/CEO_plotdesign.png" hspace="15" vspace="10" width="700">
+<img align="center" src="../images/ceo/CEO_plotdesign.png" hspace="15" vspace="10" width="700"> -->
 
-If `Copy Template Plots and Samples` was not checked, this page would look like this, and you would need to upload the .csv file with the validation points that was exported from GEE.
+On the `Plot Design` page, we need to upload the .csv file with the validation points that was exported from GEE. We choose a square plot shape with a 30m width, reflecting the default size and shape of a Landsat pixel.
 
 <img align="center" src="../images/ceo/CEO_plotdesign2.png" hspace="15" vspace="10" width="700">
 
 Click `Next`.
 
-On the `Sample Design` page, you also cannot change the parameters because `Copy Template Plots and Samples` was checked on the `Project Overview` page.  Each plot corresponds to a single sample located in the center of the plot.
+<!-- On the `Sample Design` page, you also cannot change the parameters because `Copy Template Plots and Samples` was checked on the `Project Overview` page.  Each plot corresponds to a single sample located in the center of the plot. -->
 
-<img align="center" src="../images/ceo/CEO_sampledesign.png" hspace="15" vspace="10" width="700">
+<!-- <img align="center" src="../images/ceo/CEO_sampledesign.png" hspace="15" vspace="10" width="700"> -->
 
-If `Copy Template Plots and Samples` was not checked, this page would look like this, and you would be able to create multiple samples within each plot.
+On the `Sample Design` page, we can control how samples are generated within a plot. There are many options here, but for simplicity we will choose a 'Center' spatial distribution, meaning that one sample will be generated per plot (samples and plots are the same using this mode).
 
 <img align="center" src="../images/ceo/CEO_sampledesign2.png" hspace="15" vspace="10" width="700">
 
 Click `Next`.
 
-On the `Survey Questions` page, you can create various types of sruvey questions related to your plots and samples. You can create parent and child questions so that certain questions only appear if the parent question was answered in a certain way.  You can also organize your questions into survey cards that are presented separately, which is particularly helpful when looking at land use change for different time periods.
+On the `Survey Questions` page, you can create various types of survey questions related to your plots and samples. You can create parent and child questions so that certain questions only appear if the parent question was answered in a certain way.  You can also organize your questions into survey cards that are presented separately, which is particularly helpful when looking at land use change for different time periods.
 
-For this exercise, we have two simple survey questions asking about what the land cover type is and what the percentage of that land cover type is.  On the right, you can see an example of what the survey question will look like when collecting data.
+For this exercise, we have one parent question asking about what the land cover type is and one child question asking if that sample was Forested in 2015, which will only appear if the analyst answers 'forest' to the parent question.
 
 <img align="center" src="../images/ceo/CEO_surveyquestions.png" hspace="15" vspace="10" width="700">
 
-<img align="center" src="../images/ceo/CEO_surveyquestions2.png" hspace="15" vspace="10" width="300">
+<!-- <img align="center" src="../images/ceo/CEO_surveyquestions2.png" hspace="15" vspace="10" width="300"> -->
 
 Click `Next`.
 
-On the `Survey Rules` page, you can create rules related to your survey questions.  For this exercise, we have just created 5 rules that prevent the user from answering 0% for any of the possible land cover classes (this is not a very useful rule since the 0%, 25%, and 50% options don't make any sense - assuming that you would need at least 50% coverage for the plot to be classified as that specific land cover type - but it is a good example of the general functionality of rules).  You can also set the rules so that CEO only accepts answers with certain values/strings or does not accept certain answers if the other questions were answered in a certain way.
+`Survey Rules` is the last page before review, and we will skip it for this exercise. However, you can create rules related to your survey questions to control the quality of your survey answers. See the [CEO - Creating a Project](https://servir-amazonia.github.io/barbados-training/ceo/04_CEO-creating-project.html) page for more information on Survey Rules.  
 
-<img align="center" src="../images/ceo/CEO_surveyrules.png" hspace="15" vspace="10" width="700">
+<!-- For instance, have just created 5 rules that prevent the user from answering 0% for any of the possible land cover classes (this is not a very useful rule since the 0%, 25%, and 50% options don't make any sense - assuming that you would need at least 50% coverage for the plot to be classified as that specific land cover type - but it is a good example of the general functionality of rules).  You can also set the rules so that CEO only accepts answers with certain values/strings or does not accept certain answers if the other questions were answered in a certain way. -->
+
+<!-- <img align="center" src="../images/ceo/CEO_surveyrules.png" hspace="15" vspace="10" width="700">  -->
 
 Click `Next`.
 

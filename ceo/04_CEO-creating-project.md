@@ -8,7 +8,7 @@ nav_order: 4
 # Creating a CEO project
 
 ## CEO Imagery
-Before you start making a project take a look at what imagery is established for your CEO institution. Determine whether you would like to add any more imagery options to your institution so they can be utilized in your project. Some imagery is already built into CEO, and some (BingMaps, Planet Monthly, Planet Daily, Planet NICFI, SecureWatch, and the MapBox products) will require an API key. You will be asked to provide this key in the CEO imagery setup panel. can be accessed if you have. You can add your own imagery to CEO via Web Map Service (WMS) / Web Map Tile Service (WMTS), or by connecting to your publicly shared imagery hosted in Google Earth Engine (GEE).
+Before you start making a project take a look at what imagery is established for your CEO institution. Determine whether you would like to add any more imagery options to your institution so they can be utilized in your project. Some imagery is already built into CEO, and some (BingMaps, Planet Monthly, Planet Daily, Planet NICFI, SecureWatch, and the MapBox products) will require an API key, which you will be asked to provide in the CEO imagery setup panel. You can add your own imagery to CEO via Web Map Service (WMS) / Web Map Tile Service (WMTS), or by connecting to your publicly shared imagery hosted in Google Earth Engine (GEE).
 
 *Note, we have created an extensive how-to and troubleshooting guide for adding GEE Image Assets and Image Collection Assets to CEO. It is available in CEO’s blog [here](https://blog.collect.earth/index.php/2022/04/21/connecting-gee-raster-data/). General directions on how to add your own imagery using GEE are provided below, which you can try out after this workshop.*
 
