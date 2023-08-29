@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "CEO - Image Interpretation"
-parent: "Map Validation with Collect Earth Online"
+parent: "Map Validation Using Collect Earth Online"
 nav_order: 5
 ---
 

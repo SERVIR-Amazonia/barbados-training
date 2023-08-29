@@ -1,7 +1,7 @@
 ---
 layout: page
 title:  Background
-parent: "Map Validation with Collect Earth Online"
+parent: "Map Validation Using Collect Earth Online"
 nav_order: 2
 ---
 
