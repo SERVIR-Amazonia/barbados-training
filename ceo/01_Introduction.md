@@ -14,19 +14,19 @@ Welcome to Map Validation with Collect Earth Online (CEO)! This workshop will gi
 **GEE**
 
 1. Ensure you are logged into your Google Earth Engine account.
-2. Click this link to accept the Suriname GEE script repository - [https://code.earthengine.google.com/?accept_repo=users/ebihari/SurinameWS](https://code.earthengine.google.com/?accept_repo=users/ebihari/SurinameWS)
+2. Click this link to accept the caribbean-trainings GEE script repository - [https://code.earthengine.google.com/?accept_repo=users/kwoodward/caribbean-trainings](https://code.earthengine.google.com/?accept_repo=users/kwoodward/caribbean-trainings)
 3. Create a new script file in your own script repository - name it **Map Validation - Sample Design**. 
-4. A master copy of the script is available in the script repository - [https://code.earthengine.google.com/?scriptPath=users%2Febihari%2FSurinameWS%3AMap%20Validation%20-%20Sample%20Design](https://code.earthengine.google.com/?scriptPath=users%2Febihari%2FSurinameWS%3AMap%20Validation%20-%20Sample%20Design)
+4. A master copy of the script is available in the caribbean-trainings script repository - [https://code.earthengine.google.com/?accept_repo=users%2Febihari%2FSurinameWS&scriptPath=users%2Fkwoodward%2Fcaribbean-trainings%3Abarbados-trainings%2FMap%20Validation%20-%20Sample%20Design](https://code.earthengine.google.com/?accept_repo=users%2Febihari%2FSurinameWS&scriptPath=users%2Fkwoodward%2Fcaribbean-trainings%3Abarbados-trainings%2FMap%20Validation%20-%20Sample%20Design)
 
 **CEO**
 
 1. Create a [CEO account](https://app.collect.earth/register). Remember the email address you used to make this account.
-2. Join the CEO institution for this workshop **Suriname Geospatial Workshop**. If your organization already has a CEO Institution, request to join that institution. We will also cover this step in the workshop, and make an institution if your organization does not have one.
+2. Join the CEO institution for this workshop **Barbados Geospatial Workshop**. If your organization already has a CEO Institution, request to join that institution. We will also cover this step in the workshop, and make an institution if your organization does not have one.
 3. Install [Google Earth Pro](https://support.google.com/earth/answer/21955?hl=en) on your computer.
 
 **Google Sheets**
 
-1. Access all relevant .csv files in the Suriname Google Drive folder for training 9 - [https://drive.google.com/drive/u/2/folders/1czeYS5ZdCimR7tlQg-dE7QK8d08mzzIX](https://drive.google.com/drive/u/2/folders/1czeYS5ZdCimR7tlQg-dE7QK8d08mzzIX)
+1. Access all relevant .csv files in the 'map-validation-ceo' Google Drive folder - [https://drive.google.com/drive/folders/1m2_2YzSSRNENOJZiNgqIsHg3p5OJSGqi?usp=sharing](https://drive.google.com/drive/folders/1m2_2YzSSRNENOJZiNgqIsHg3p5OJSGqi?usp=sharing)
 
 *For the accuracy assessment and area estimate portion of this exercise, we will use a spreadsheet tool such as Microsoft Excel or Google Sheets. However, you can also use a fantastic tool called the System for Earth Observation Data Access, Processing, & Analysis for Land Monitoring (SEPAL). It is a cloud-based computing software designed by the United Nation’s Food and Agricultural Organization (FAO) to aid in remote sensing applications in developing countries.*
 
