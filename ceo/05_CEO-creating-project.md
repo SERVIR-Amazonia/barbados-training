@@ -1,8 +1,8 @@
 ---
 layout: page
-title: "CEO - Creating a Project"
+title: "CEO Guide - Creating a Project"
 parent: "Map Validation Using Collect Earth Online"
-nav_order: 4
+nav_order: 5
 ---
 
 # Creating a CEO project

@@ -1,8 +1,8 @@
 ---
 layout: page
-title: "CEO - Designing a Project"
+title: "CEO Guide - Designing a Project"
 parent: "Map Validation Using Collect Earth Online"
-nav_order: 3
+nav_order: 4
 ---
 
 # Designing a CEO Project (& Data Collection Best Practices)

@@ -2,7 +2,7 @@
 layout: page
 title: Map Validation with CEO
 parent: "Map Validation Using Collect Earth Online"
-nav_order: 6
+nav_order: 3
 ---
 
 # Sample-Based Map Validation and Area Estimation with CEO

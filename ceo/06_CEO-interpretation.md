@@ -1,8 +1,8 @@
 ---
 layout: page
-title: "CEO - Image Interpretation"
+title: "CEO Guide - Image Interpretation"
 parent: "Map Validation Using Collect Earth Online"
-nav_order: 5
+nav_order: 6
 ---
 
 # Image Interpretation in a CEO Project (& Interpretation Best Practices)
