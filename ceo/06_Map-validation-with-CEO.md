@@ -359,7 +359,7 @@ Click `Next`.
 
 On the `Survey Questions` page, you can create various types of survey questions related to your plots and samples. You can create parent and child questions so that certain questions only appear if the parent question was answered in a certain way.  You can also organize your questions into survey cards that are presented separately, which is particularly helpful when looking at land use change for different time periods.
 
-For this exercise, we have one parent question asking about what the land cover type is and one child question asking if that sample was Forested in 2015, which will only appear if the analyst answers 'forest' to the parent question.
+For this exercise, we have one parent question asking about what the land cover type is and one child question asking if that sample was Forested in a specific previous year, which will only appear if the analyst answers 'forest' to the parent question.
 
 <img align="center" src="../images/ceo/CEO_surveyquestions.png" hspace="15" vspace="10" width="700">
 
@@ -383,6 +383,17 @@ At this point, you can still edit the project.  In order to start collecting dat
 
 <img align="center" src="../images/ceo/CEO_publish.png" hspace="15" vspace="10" width="700">
 
+## Configure the GeoDash
+
+The GeoDash is a dashboard containing user-defined graphs and widgets which an analyst can use to aid in their survey response decision-making. We will configure one for our project now. Keep in mind the GeoDash is optional but is often worth the time to configure for your projects.
+
+While on this published project overview page, click Configure GeoDash on the right-hand side. You will see a blank page. Click 'Add Widget' in the top right. We will create a time series graph of NDVI based on Landsat capturing several years before and through 2020. 
+Use the settings in this example, or feel free to change them. Then, click 'Create'. You'll then see a dummy widget populated in your Dashboard with your chosen Title. You can close the GeoDash configuration tab that you have open - your changes are saved.
+
+<img align="center" src="../images/ceo/CEO_geodash_timeseries.png" hspace="7" vspace="10" width="400">
+
+<img align="center" src="../images/ceo/CEO_geodash2.png" hspace="10" vspace="15" width="500">
+
 ## Collect Data in the CEO Project
 
 Now that you have published your project, go back to the institution home page and click on your project you just created to start collecting data.  It should be red before you start collecting data, yellow after you start collecting data, and green when you finish collecting data for all plots.
@@ -393,7 +404,7 @@ Select `Collect` and click `Go to First Plot`.
 
 <img align="center" src="../images/ceo/CEO_collect.png" hspace="15" vspace="10" width="700">
 
-It should take you to the first plot.  Here, you can view the original map classiciations in `Plot Information`, as well as all the imagery that was selected for this project in `Imagery Options`.  
+It should take you to the first plot.  Here, you can view the original map classiciations in `Plot Information`, as well as all the imagery that was selected for this project in `Imagery Options`. Additionally, if your project is not set up to auto-launch the GeoDash, you can click the GeoDash button to launch it yourself for any given plot.
 
 <img align="center" src="../images/ceo/CEO_collect2.png" hspace="15" vspace="10" width="700">
 
@@ -415,17 +426,23 @@ Go back to the CEO project.  In `Survey Questions`, select the land cover type o
 
 <img align="center" src="../images/ceo/CEO_collect2.png" hspace="15" vspace="10" width="700">
 
-When you click `Save`, it should take you to the next plot.  Go through all 20 plots and select whether it was mangrove or not.  When you are done (and have saved each plot individually), click `Quit` to exit data collection mode.
+When you click `Save`, it should take you to the next plot.  Go through a few plots and answer the survey questions.  When you have done so, click `Quit` to exit data collection mode.
 
-Now that you have finished collecting data in your project, go back to the institution home page and click the `S` button to the right of your project.  This will download the data as a .csv file.  The file you download will retain the original columns from the sample points we generated in GEE and uploaded to CEO as a .csv (with `pl_` added to the column name).
+When you are ready to download the analyzed data, go back to the institution home page and click the `S` button to the right of your project.  This will download the data as a .csv file.  The file you download will retain the original columns from the sample points we generated in GEE and uploaded to CEO as a .csv (with `pl_` added to the column name).
 
 <img align="center" src="../images/ceo/CEO_projectpage2.png" hspace="15" vspace="10" width="600">
 
 <img align="center" src="../images/ceo/CEO_download.png" hspace="15" vspace="10" width="500">
 
+**Crowdsourcing Exercise!! We will all collect points in one project to crowdsource our efforts**
+
+Back in the Institutions page, click on Kyle Woodward's project - 'Land Cover Sample Interpretation - Kyle Woodward' and start Collecting. When you see a message that there are no more plots to analyze we are done! 
+
+Like we've done before, we will then download this project's resulting sample dataset as a CSV from the Institution page.
+
 # Assess Accuracy and Estimate Area in Google Sheets
 
-For this section, copy the files from the [Suriname workshop Google Drive](https://drive.google.com/drive/u/2/folders/1czeYS5ZdCimR7tlQg-dE7QK8d08mzzIX) to your own Google Drive and work in Google Sheets.  The files we will be using for this section are your CEO validation data (.csv) and your GEE pixel count data (.csv).
+For this section, copy the files from the [Barbados workshop Google Drive](https://drive.google.com/drive/folders/1m2_2YzSSRNENOJZiNgqIsHg3p5OJSGqi?usp=drive_link) to your own Google Drive and work in Google Sheets.  The files we will be using for this section are your CEO validation data (.csv) and your GEE pixel count data (.csv).
 
  If you want to work on your own computer in Microsoft Excel, make sure you have all relevant files downloaded to your computer. 
 
