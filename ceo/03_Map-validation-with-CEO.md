@@ -437,13 +437,13 @@ Like we've done before, we will then download this project's resulting sample da
 
 # Assess Accuracy and Estimate Area in Google Sheets
 
-For this section, copy the files from the [Barbados workshop Google Drive](https://drive.google.com/drive/folders/1m2_2YzSSRNENOJZiNgqIsHg3p5OJSGqi?usp=drive_link) to your own Google Drive and work in Google Sheets.  The files we will be using for this section are your CEO validation data (.csv) and your GEE pixel count data (.csv).
-
- If you want to work on your own computer in Microsoft Excel, make sure you have all relevant files downloaded to your computer. 
+For this section, open this [Barbados workshop Google Drive folder](https://drive.google.com/drive/folders/1m2_2YzSSRNENOJZiNgqIsHg3p5OJSGqi?usp=drive_link). The two spreadsheets we need are the `_DUMMYDATA` Google Sheets document and your GEE pixel count data (.csv).
 
 ## Error Matrix
 
-Open the dummy CEO validation data .csv file in Google Sheets and **MAKE A COPY** to your own Google Drive. We will use this as a pre-baked example.  The first sheet contains a completed 'dummy' CEO interpretation dataset - all the CEO interpreted survey answers are made up. Look at the sheet called `error matrix empty`.
+Open the `_DUMMYDATA` file in Google Sheets and **MAKE A COPY** to your own Google Drive. We will use this as a pre-baked example, then you can use this workflow to create your own Accuracy and Area Estimates from real validation data.  
+
+The first sheet contains a completed 'dummy' CEO interpretation dataset - all the CEO interpreted survey answers are made up. Look at the sheet called `error matrix empty`.
 
 <img align="center" src="../images/ceo/GS_errormatrixempty.png" hspace="15" vspace="10" width="650">
 

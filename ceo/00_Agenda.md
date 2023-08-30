@@ -20,9 +20,9 @@ kwoodward@sig-gis.com
 | 09:00 – 10:00 | Capstone Prep Session <br> Setup Check         |
 | 10:00 – 10:15 | Coffee Break                                   |
 | 10:15 - 10:45 | Introduction to Stratified Random Sampling, Map Validation, & Unbiased Area Estimation | 
-| 10:45 – 12:00 | Introduction to Collect Earth Online           |
+| 10:45 – 12:00 | Map Validation and Area Estimation with CEO Pt 1           |
 | 12:00 – 13:00 | Lunch                                          |
-| 13:00 – 14:00 | Map Validation and Area Estimation with CEO    |
+| 13:00 – 14:00 | Map Validation and Area Estimation with CEO Pt 2   |
 | 14:00 – 15:00 | Challenges <br> Daily Recap                    |
 
 ## Sources 
