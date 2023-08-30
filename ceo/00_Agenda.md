@@ -13,6 +13,7 @@ Navigate through the different lesson sections by using the menu on the lefthand
 **Date**: August 31, 2023   
 
 **Instructor:** Kyle Woodward
+kwoodward@sig-gis.com
 
 |Time           |  Topics       |
 |:-------------:|:-------------:|
