@@ -228,7 +228,7 @@ Once the tasks have finished running, we can open the exported .csv files in Goo
 
 From your Google Drive, download these .csv files to your computer.
 
-*Extra: Add legend.*
+*Extra: Adding a legend in Code Editor.*
 
 ``` javascript
 //--------------------------------------------------------------
@@ -245,7 +245,7 @@ var legend = ui.Panel({
 
 // Create legend title
 var legendTitle = ui.Label({
-  value: 'Land Cover Classes - 2022',
+  value: 'Land Cover Classes',
   style: {
     fontWeight: 'bold',
     fontSize: '18px',
@@ -287,25 +287,40 @@ var makeRow = function(color, name) {
 var palette = visParam.palette;
 
 // list with class names
-var names = ['forest','water','urban','agriculture','bare soil'];
+var names = [
+'agriculture',
+'bare',
+'herbaceous',
+'forest',
+'shrub',
+'urban',
+'water',
+'wetland'
+];
 
 
 // Add color and and names to legend panel
-for (var i = 0; i < 5; i++) {
+for (var i = 0; i < names.length; i++) {
   legend.add(makeRow(palette[i], names[i]));
   }  
 
 // Add legend to map (alternatively you can also print the legend to the console)  
-Map.add(legend);  
+Map.add(legend);   
 ```
 
 Code Checkpoint: [https://code.earthengine.google.com/0cd336dd3150cbfb70df6491e9c34b7a?accept_repo=users%2Febihari%2FSurinameWS](https://code.earthengine.google.com/0cd336dd3150cbfb70df6491e9c34b7a?accept_repo=users%2Febihari%2FSurinameWS)
 
 # Collect Validation Data in CEO
 
-Log in to CEO.  On the main CEO page, in the search bar at the top left, search for an institution called “Barbados Geospatial Workshop.” Click `Visit`.
+Log in to CEO.  On the main CEO page, in the search bar at the top left, search for an institution called “Barbados Geospatial Workshop.” Click `Visit`. 
+
+*If the Institution does not show, expand the filters window and check the 'Show Empty Institutions' check-box.* 
 
 <img align="center" src="../images/ceo/CEO_homepage.png" hspace="15" vspace="10" width="600">
+
+## Join the Instituion
+
+Click the Users tab, and click the `+ Request Membership` button. Your trainer will go in and approve everyone's membership and elevate them to the 'Admin' role. 
 
 ## Add Imagery to the CEO Institution
 
@@ -313,7 +328,7 @@ On the institution's home page, click on `Imagery`.
 
 <img align="center" src="../images/ceo/CEO_imagery.png" hspace="15" vspace="10" width="700">
 
-Click on the `Add New Imagery` button.  Here, you can see how to add a new type of imagery to a project.  There are some data sets already available in CEO, like Sentinel and Planet, but you can also import any public GEE `Image` or `ImageCollection` or any private GEE asset.  You just need its asset ID, a start and end date, and some parameters for its visualization.
+Click on the `Add New Imagery` button (it will show up one you have joined the Institution).  Here, you can see how to add a new type of imagery to a project.  There are some data sets already available in CEO, like Sentinel and Planet, but you can also import any public GEE `Image` or `ImageCollection` or any private GEE asset.  You just need its asset ID, a start and end date, and some parameters for its visualization.
 
 <img align="center" src="../images/ceo/CEO_imagery2.png" hspace="15" vspace="10" width="700">
 
@@ -322,10 +337,6 @@ Click on the `Add New Imagery` button.  Here, you can see how to add a new type 
 On the institution’s home page, go to the `Projects` tab and click `+ Create New Project`.  The workflow for creating a new project should appear. 
 
 <img align="center" src="../images/ceo/CEO_projectpage.png" hspace="15" vspace="10" width="700">
-
-<!-- On this first `Project Overview` page, under `Select Template`, select the `Barbados land cover map validation` project that is already present in the institution, and click `Load`.  All of the project parameters should now be identical to the project that has already been created. -->
-
-<!-- You can also create a project from scratch, but for the sake of simplicity, we will use this project template that has already been made for you.  If you want to model a CEO project off of another project but create entirely new plots/samples or survey questions, you can uncheck `Copy Template Plots and Samples` and `Copy Template Widgets`. -->
 
 For Name, use this title: 'Land Cover Sample Interpretation - YOUR NAME' - and use your own name. This way, everyone in the workshop will have their own project to work in and we can discern the differences.  
 
@@ -337,19 +348,11 @@ On the `Imagery Selection` page, you can change the imagery that will be availab
 
 <img align="center" src="../images/ceo/CEO_imageryselection.png" hspace="15" vspace="10" width="700">
 
-<!-- On the `Plot Design` page, you cannot currently change the parameters because `Copy Template Plots and Samples` was checked on the `Project Overview` page.  There are 50 plots centered on our validation points exported from GEE.  They are square and 30m in width because the Landsat data used for our classification has a resolution of 30m.
-
-<img align="center" src="../images/ceo/CEO_plotdesign.png" hspace="15" vspace="10" width="700"> -->
-
 On the `Plot Design` page, we need to upload the .csv file with the validation points that was exported from GEE. We choose a square plot shape with a 30m width, reflecting the default size and shape of a Landsat pixel.
 
 <img align="center" src="../images/ceo/CEO_plotdesign2.png" hspace="15" vspace="10" width="700">
 
 Click `Next`.
-
-<!-- On the `Sample Design` page, you also cannot change the parameters because `Copy Template Plots and Samples` was checked on the `Project Overview` page.  Each plot corresponds to a single sample located in the center of the plot. -->
-
-<!-- <img align="center" src="../images/ceo/CEO_sampledesign.png" hspace="15" vspace="10" width="700"> -->
 
 On the `Sample Design` page, we can control how samples are generated within a plot. There are many options here, but for simplicity we will choose a 'Center' spatial distribution, meaning that one sample will be generated per plot (samples and plots are the same using this mode).
 
@@ -363,15 +366,9 @@ For this exercise, we have one parent question asking about what the land cover 
 
 <img align="center" src="../images/ceo/CEO_surveyquestions.png" hspace="15" vspace="10" width="700">
 
-<!-- <img align="center" src="../images/ceo/CEO_surveyquestions2.png" hspace="15" vspace="10" width="300"> -->
-
 Click `Next`.
 
-`Survey Rules` is the last page before review, and we will skip it for this exercise. However, you can create rules related to your survey questions to control the quality of your survey answers. See the [CEO - Creating a Project](https://servir-amazonia.github.io/barbados-training/ceo/04_CEO-creating-project.html) page for more information on Survey Rules.  
-
-<!-- For instance, have just created 5 rules that prevent the user from answering 0% for any of the possible land cover classes (this is not a very useful rule since the 0%, 25%, and 50% options don't make any sense - assuming that you would need at least 50% coverage for the plot to be classified as that specific land cover type - but it is a good example of the general functionality of rules).  You can also set the rules so that CEO only accepts answers with certain values/strings or does not accept certain answers if the other questions were answered in a certain way. -->
-
-<!-- <img align="center" src="../images/ceo/CEO_surveyrules.png" hspace="15" vspace="10" width="700">  -->
+`Survey Rules` is the last page before review, and we will skip it for this exercise. However, you can create rules related to your survey questions to control the quality of your survey answers. See the [CEO Guide - Creating a Project](https://servir-amazonia.github.io/barbados-training/ceo/04_CEO-creating-project.html) page for more information on Survey Rules.  
 
 Click `Next`.
 
@@ -385,14 +382,14 @@ At this point, you can still edit the project.  In order to start collecting dat
 
 ## Configure the GeoDash
 
-The GeoDash is a dashboard containing user-defined graphs and widgets which an analyst can use to aid in their survey response decision-making. We will configure one for our project now. Keep in mind the GeoDash is optional but is often worth the time to configure for your projects.
+The GeoDash is a dashboard containing graphs and widgets that an analyst can use to aid in their survey response decision-making. We will configure one for our project now. Keep in mind the GeoDash is optional but is often worth the time to configure for your projects.
 
-While on this published project overview page, click Configure GeoDash on the right-hand side. You will see a blank page. Click 'Add Widget' in the top right. We will create a time series graph of NDVI based on Landsat capturing several years before and through 2020. 
-Use the settings in this example, or feel free to change them. Then, click 'Create'. You'll then see a dummy widget populated in your Dashboard with your chosen Title. You can close the GeoDash configuration tab that you have open - your changes are saved.
+While on this published project overview page, click `Configure GeoDash` on the right-hand side. You will see a blank page. Click `Add Widget` in the top right. We will create a time series graph of NDVI based on Landsat capturing several years before and through 2020. 
+Use the settings in this example, or feel free to change them. Then, click `Create`. You'll then see a dummy widget populated in your Dashboard with your chosen Title. You can close the GeoDash configuration tab that you have open - your changes are saved.
 
-<img align="center" src="../images/ceo/CEO_geodash_timeseries.png" hspace="7" vspace="10" width="400">
+<img align="center" src="../images/ceo/CEO_geodash_timeseries.PNG" hspace="7" vspace="10" width="400">
 
-<img align="center" src="../images/ceo/CEO_geodash2.png" hspace="10" vspace="15" width="500">
+<img align="center" src="../images/ceo/CEO_geodash2.PNG" hspace="10" vspace="15" width="500">
 
 ## Collect Data in the CEO Project
 
@@ -404,11 +401,9 @@ Select `Collect` and click `Go to First Plot`.
 
 <img align="center" src="../images/ceo/CEO_collect.png" hspace="15" vspace="10" width="700">
 
-It should take you to the first plot.  Here, you can view the original map classiciations in `Plot Information`, as well as all the imagery that was selected for this project in `Imagery Options`. Additionally, if your project is not set up to auto-launch the GeoDash, you can click the GeoDash button to launch it yourself for any given plot.
+It should take you to the first plot.  Here, you can view the original map classiciations in `Plot Information`, as well as all the imagery that was selected for this project in `Imagery Options`. Additionally, if your project is not set up to auto-launch the GeoDash, you can click the `GeoDash` button to launch it yourself for any given plot.
 
 <img align="center" src="../images/ceo/CEO_collect2.png" hspace="15" vspace="10" width="700">
-
-<img align="center" src="../images/ceo/CEO_collectimagery.png" hspace="15" vspace="10" width="400">
 
 If you want some more high resolution imagery to help in your decision, click `Download Plot KML`.  Now, open this file, and Google Earth Pro will open with the plot geometry already loaded in on top of Google Earth imagery.
 
@@ -436,9 +431,9 @@ When you are ready to download the analyzed data, go back to the institution hom
 
 **Crowdsourcing Exercise!! We will all collect points in one project to crowdsource our efforts**
 
-Back in the Institutions page, click on Kyle Woodward's project - 'Land Cover Sample Interpretation - Kyle Woodward' and start Collecting. When you see a message that there are no more plots to analyze we are done! 
+Back in the Institutions page, use your trainer's Project and start Collecting. It should take only a few minutes to collect dozens of points together. When you see a message that there are no more plots to analyze we are done! 
 
-Like we've done before, we will then download this project's resulting sample dataset as a CSV from the Institution page.
+Like we've done before, we will then download this project's resulting sample dataset as a CSV from the `Institution` page.
 
 # Assess Accuracy and Estimate Area in Google Sheets
 
@@ -448,96 +443,53 @@ For this section, copy the files from the [Barbados workshop Google Drive](https
 
 ## Error Matrix
 
-Open the CEO validation data .csv file in Google Sheets.  Open the sheet called `error matrix empty`.
+Open the dummy CEO validation data .csv file in Google Sheets and **MAKE A COPY** to your own Google Drive. We will use this as a pre-baked example.  The first sheet contains a completed 'dummy' CEO interpretation dataset - all the CEO interpreted survey answers are made up. Look at the sheet called `error matrix empty`.
 
 <img align="center" src="../images/ceo/GS_errormatrixempty.png" hspace="15" vspace="10" width="650">
 
-Paste the following code into the top left cell, `D4`, and click enter.  Then select this cell and drag the blue selection box to cover the 4 cells to the left.
+Paste the following code into the top left cell, `D4`, and click enter.  Then select this cell and drag to the right across to the final land cover column. It will auto-complete the rest of the row.
 
 ```
-=COUNTIFS('ceo-Suriname-land-cover-map-val'!$N$2:$N$51, $C$4, 'ceo-Suriname-land-cover-map-val'!$O$2:$O$51, D3)
+=COUNTIFS('val-pts'!$N$2:$N, $C4, 'val-pts'!$O$2:$O, D$3)
 ```
 
 <img align="center" src="../images/ceo/GS_errormatrixempty1.png" hspace="15" vspace="10" width="650">
 
-Do the same thing for the next cell below the top left cell, `D5`.
+Copy the formula in `D4` and paste it into `D5`. Then click and drag `D5` across the row.
+Do this for the rest of the rows. 
 
-```
-=COUNTIFS('ceo-Suriname-land-cover-map-val'!$N$2:$N$51, $C$5, 'ceo-Suriname-land-cover-map-val'!$O$2:$O$51, D3)
-```
-
-<img align="center" src="../images/ceo/GS_errormatrixempty2.png" hspace="15" vspace="10" width="650">
-
-Then for `D6`.
-
-```
-=COUNTIFS('ceo-Suriname-land-cover-map-val'!$N$2:$N$51, $C$6, 'ceo-Suriname-land-cover-map-val'!$O$2:$O$51, D3)
-```
-
-<img align="center" src="../images/ceo/GS_errormatrixempty3.png" hspace="15" vspace="10" width="650">
-
-Then for `D7`.
-
-```
-=COUNTIFS('ceo-Suriname-land-cover-map-val'!$N$2:$N$51, $C$7, 'ceo-Suriname-land-cover-map-val'!$O$2:$O$51, D3)
-```
-
-<img align="center" src="../images/ceo/GS_errormatrixempty4.png" hspace="15" vspace="10" width="650">
-
-Then for `D8`.
-
-```
-=COUNTIFS('ceo-Suriname-land-cover-map-val'!$N$2:$N$51, $C$8, 'ceo-Suriname-land-cover-map-val'!$O$2:$O$51, D3)
-```
-
-<img align="center" src="../images/ceo/GS_errormatrixempty5.png" hspace="15" vspace="10" width="650">
+<img align="center" src="../images/ceo/GS_errormatrixemptyAllClasses.PNG" hspace="15" vspace="10" width="650">
 
 ### **Question 1**
 * **What does this code do?**
 * **What do the values in these cells mean?**
 
-Now, in all the cells in the `sum` row (`D9:H9`), add up the samples that were categorized in each class by the **CEO validation data**.
+Now, for each row, in the sum column we will sum the row's values. The first cell's formula, `L4`, should be `=SUM(D4:K4)`. Then click and drag that cell down to fill in all sum values. Do this sum calculation for the columns as well for the Sum row 
 
-<img align="center" src="../images/ceo/GS_errormatrixempty6.png" hspace="15" vspace="10" width="650">
-
-In all the cells in the `sum` column (`I4:I9`), add up the samples that were categorized in each class by the **GEE classification map**.
-
-<img align="center" src="../images/ceo/GS_errormatrixempty7.png" hspace="15" vspace="10" width="650">
-
-*Hint: In cell `D9`, paste the following code.  Then select this cell and drag the blue selection box to cover the 4 cells to the left.*
-
-```
-=SUM(D4:D8)
-```
-
-*Hint: In cell `I4`, paste the following code.  Then select this cell and drag the blue selection box to cover the 5 cells below it.*
-
-```
-=SUM(D4:H4)
-```
+<img align="center" src="../images/ceo/GS_errormatrixemptySum.PNG" hspace="15" vspace="10" width="650">
 
 ### **Question 2**
 * **What does this code do?**
 * **What do the values in these cells mean?**
 
-In all the cells in the `producer's accuracy` column (`D10:H10`), divide the number of correctly categorized samples by the total number of samples in that class from the **CEO validation data**.
+In all the cells in the `producer's accuracy` column, divide the number of correctly categorized samples by the total number of samples (sum) in that class from the **CEO validation data**.
 
-<img align="center" src="../images/ceo/GS_errormatrixempty8.png" hspace="15" vspace="10" width="650">
+<img align="center" src="../images/ceo/GS_errormatrixemptyProducers.png" hspace="15" vspace="10" width="650">
 
-In all the cells in the `user's accuracy` column (`J4:J8`), divide the number of correctly categorized samples by the total number of samples in that class from the **GEE classification map**.
+In all the cells in the `user's accuracy` column, divide the number of correctly categorized samples by the total number of samples (sum) in that class from the **GEE classification map**.
 
-<img align="center" src="../images/ceo/GS_errormatrixempty9.png" hspace="15" vspace="10" width="650">
+<img align="center" src="../images/ceo/GS_errormatrixemptyUsers.png" hspace="15" vspace="10" width="650">
 
-*Hint: In cell `D10`, paste the following code. You have to manually do this for each cell.*
-
-```
-=D4/D9
-```
-
-*Hint: In cell `J4`, paste the following code. You have to manually do this for each cell.*
+*Hint: In cell `D13`, paste the following code. You have to manually do this for each cell.*
 
 ```
-=D4/I4
+=D4/D12
+```
+
+*Hint: In cell `M4`, paste the following code. You have to manually do this for each cell.*
+
+```
+=D4/L4
 ```
 
 ### **Question 3**
@@ -546,12 +498,12 @@ In all the cells in the `user's accuracy` column (`J4:J8`), divide the number of
 
 In cell `J10`, add up all the correctly categorized samples and divide by the total number of samples.
 
-<img align="center" src="../images/ceo/GS_errormatrixempty10.png" hspace="15" vspace="10" width="650">
+<img align="center" src="../images/ceo/GS_errormatrixemptyComplete.PNG" hspace="15" vspace="10" width="650">
 
 *Hint: Paste the following code.*
 
 ```
-=SUM(D4,E5,F6,G7,H8)/I9
+=SUM(D4,E5,F6,G7,H8,I9,J10,K11)/L12
 ```
 
 ### **Question 4**
@@ -569,7 +521,9 @@ You now have a completed error matrix!  You can see what your final error matrix
 
 Open the CEO validation data .csv file in Google Sheets.  Open the sheet called `area estimation`.
 
-The first section called `Sample Points Comparison Table` is where you input your data.  In `D4:H8`, you insert your error matrix values, and in `M4:M8` you insert your pixel count values (from your pixel count .csv).  You also calculate strata weights based on the percentage of total pixels that are in each stratum.
+The first section called `Sample Points Comparison Table` is where you input your data.  The cells inside the top error matrix is where you insert your error matrix values, the column called Sum Strata Pixels is where you insert your pixel count values (from your pixel count .csv).  
+
+**NOTE: The rest of the sheet's formulas are already set up for you You also calculate strata weights based on the percentage of total pixels that are in each stratum.**
 
 <img align="center" src="../images/ceo/GS_areaestimation1.png" hspace="15" vspace="10" width="700">
 
