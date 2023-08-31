@@ -40,3 +40,11 @@ You can edit the elements of your institution later. If you ever decide to delet
 Admin status allows you to create/edit projects and review points in QA/QC mode
 7. After switching the user to Admin you must hit the Update button
 <img align="center" src="../images/ceo/2C_updateInstitutionMembership.png"  vspace="10" width="500"> 
+
+## AREA2 Script Repo Tools
+Click this link to add the AREA2 Repository: [https://code.earthengine.google.com/?accept_repo=projects/AREA2/public](https://code.earthengine.google.com/?accept_repo=projects/AREA2/public)
+
+
+This GEE repository contains UI script tools that help with sampling, error, and unbiased area estimates. 
+
+A particularly helpful script is the Stratified Estimation one: [https://code.earthengine.google.com/?accept_repo=users%2Febihari%2FSurinameWS&scriptPath=projects%2FAREA2%2Fpublic%3A3.%20Estimation%2FStratified%20Estimation](https://code.earthengine.google.com/?accept_repo=users%2Febihari%2FSurinameWS&scriptPath=projects%2FAREA2%2Fpublic%3A3.%20Estimation%2FStratified%20Estimation)
