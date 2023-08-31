@@ -72,7 +72,8 @@ Let’s fill in this confusion matrix with example values if 100 points were col
 
 **Producer’s Accuracy**
 
-* The percentage of time a class identified on the ground is classified into the same category on the map. The producer’s accuracy is the map accuracy from the point of view of the map maker (producer) and is calculated as the number of correctly identified pixels of a given class divided by the total number of pixels in that reference class. The producer's accuracy tells us that for a given class in the reference pixels, how many pixels on the map were classified correctly.  **The percentage of time a class identified on the ground is classified into the same category on the map.**
+* **The percentage of time a class identified on the ground is classified into the same category on the map.** 
+* The producer’s accuracy is the map accuracy from the point of view of the *map maker (producer)* and is calculated as the number of correctly identified pixels of a given class divided by the total number of pixels in that reference class. The producer's accuracy tells us that for a given class in the reference pixels, how many pixels on the map were classified correctly.
 * Producer's Accuracy (for flood) = True Positive / (True Positive +False Positive)
 * Producer's Accuracy (for no-flood) = True Negative / (True Negative +False Negative)
 
@@ -84,7 +85,8 @@ Let’s fill in this confusion matrix with example values if 100 points were col
 
 **User’s Accuracy**
 
-* The percentage of time a class identified on the map is classified into the same category on the ground. The user’s accuracy is the accuracy from the point of view of a map user, not the map maker, and is calculated as the number correctly identified in a given map class divided by the number claimed to be in that map class. The user’s accuracy essentially tells us how often the class on the map is actually that class on the ground.  **The percentage of time a class identified on the map is classified into the same category on the ground.**
+* **The percentage of time a class identified on the map is classified into the same category on the ground.**
+* The user’s accuracy is the accuracy from the point of view of a *map user*, not the map maker, and is calculated as the number correctly identified in a given map class divided by the number claimed to be in that map class. The user’s accuracy essentially tells us how often the class on the map is actually that class on the ground.
 * User's Accuracy (for flood) = True Positive / (True Positive +False Negative)
 * User's Accuracy (for no-flood) = True Negative / (True Negative +False Positive)
 
