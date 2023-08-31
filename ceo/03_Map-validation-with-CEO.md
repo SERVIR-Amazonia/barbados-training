@@ -308,7 +308,7 @@ for (var i = 0; i < names.length; i++) {
 Map.add(legend);   
 ```
 
-Code Checkpoint: [https://code.earthengine.google.com/0cd336dd3150cbfb70df6491e9c34b7a?accept_repo=users%2Febihari%2FSurinameWS](https://code.earthengine.google.com/0cd336dd3150cbfb70df6491e9c34b7a?accept_repo=users%2Febihari%2FSurinameWS)
+Code Checkpoint: [https://code.earthengine.google.com/130e01e220183c65ef8e2010baac37b6?accept_repo=users%2Febihari%2FSurinameWS](https://code.earthengine.google.com/130e01e220183c65ef8e2010baac37b6?accept_repo=users%2Febihari%2FSurinameWS)
 
 # Collect Validation Data in CEO
 

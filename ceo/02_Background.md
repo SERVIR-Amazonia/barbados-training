@@ -48,7 +48,7 @@ We have pre-calculated approximate pixel counts of the map classes using Google 
 
 
 If we had used systematic or random sampling we might severely undersample rare classes and oversample common ones. With stratified random sampling I can put a minimum value on the number of points in each map class, or strata. We have pre-prepared a set of points with 20 in each of the three rarest classes 10 points in the more common classes, for a total of 110 sample points. 
-The stratified random sampling was performed in GEE using this [script](https://code.earthengine.google.com/4a255a064bcea6205c06fcba044462f3?accept_repo=users%2Febihari%2FSurinameWS), which exports a CSV of sample locations ready to be imported into CEO. 
+The stratified random sampling was performed in GEE using this [script](https://code.earthengine.google.com/130e01e220183c65ef8e2010baac37b6?accept_repo=users%2Febihari%2FSurinameWS), which exports a CSV of sample locations ready to be imported into CEO. 
 
 *Download that CSV file [here](https://drive.google.com/file/d/1EOVsUm5fzLKM7CIujY3V5b-iO0QQTy4K/view?usp=drive_link).*
 
