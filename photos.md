@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Photos
-nav_order: 12
+nav_order: 14
 ---
 
 # Photos
