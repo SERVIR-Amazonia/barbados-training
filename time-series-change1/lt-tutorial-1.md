@@ -50,6 +50,13 @@ First, we will load a study area for the analysis. The LandTrendr algorithms are
 
 In the Control Panel, select the "Asset Overlay Options" menu, and enter these values:
 1. In the first box of the "Define file path to an asset" section, enter the path to your AOI asset, or a smaller sample area.
+
+*We have provided two AOIs for you to choose from or you can use your own:*
+
+*projects/caribbean-trainings/assets/barbados-2022/CliftonHillAOI*
+
+*projects/caribbean-trainings/assets/barbados-2022/CattleWashAOI*
+
 2. In the first box of the "Define Layer Name" section, enter a name that you will recognize when it appears in the layers of the map.
 3. Near the bottom, click the check-box that makes the first layer one to use to constrain later analyses.
 4. Click on the 'Add asset to map'.
@@ -118,23 +125,23 @@ However, we also see an example of a purple disturbance with an odd spatial patt
 
 Step 1. LandTrendr Options: You can update the input parameters for the algorithm by expanding the "LandTrendr Options" menu of the GUI. A basic video showing this process is here: [https://youtu.be/TNQOdHIg24s](https://youtu.be/TNQOdHIg24s). Many of the values have been pre-set to work for Nepal, but you can adjust them for your region. For example, after experimentation, TCW (Tasseled Cap Wetness) was found to be an index that works well in Nepal’s environments. The date range choice is one of the more important choices in the LandTrendr implementation process. The user must balance the goal of using images in times of year when clear observations are most likely against the goal of finding the change of interest. Full parameters description are [here](https://github.com/wespestad/MRV/blob/9380035aff6fd7b65dc8b28bb28ae3e9f4deff3d/Modules_2/change_detection_landtrendr_v3.md#353-exploring-impacts-of-the-fitting-parameters)
 
-* *Max Segments*: Set to 8. With about 30 possible years of data, eight segments is still appropriate, as it is well under the 3:1 ratio rule of thumb
+**Max Segments**: Set to 8. With about 30 possible years of data, eight segments is still appropriate, as it is well under the 3:1 ratio rule of thumb
 
-* *Spike Threshold*: Keep at 0.9. This parameter can have some effect when there are noisy trajectories, but it may not need to be changed until after we view the impacts of changing the date range. Setting it to 1.0 allows all spikes to be kept, while lower values remove some sharp features that may be noise.
+**Spike Threshold**: Keep at 0.9. This parameter can have some effect when there are noisy trajectories, but it may not need to be changed until after we view the impacts of changing the date range. Setting it to 1.0 allows all spikes to be kept, while lower values remove some sharp features that may be noise.
 
-* *Vertex Count Overshoot*: Keep at 3. This parameter rarely needs to change.
+**Vertex Count Overshoot**: Keep at 3. This parameter rarely needs to change.
 
-* *Prevent One Year Recovery*: Set to "false". This is an aggressive parameter that does what it suggests -- it prevents one-year recovery segments. However it is more generally useful to tune the recovery using the next parameter -- the Recovery threshold.
+**Prevent One Year Recovery**: Set to "false". This is an aggressive parameter that does what it suggests -- it prevents one-year recovery segments. However it is more generally useful to tune the recovery using the next parameter -- the Recovery threshold.
 
-* *Recovery Threshold*: Set to 0.5. Lower numbers disallow very quick recoveries, but in tropical regions quick vegetative recovery after disturbance is the norm. 0.5 is a moderate value and dampens the impacts of noise. A value of 1 would allow all details in the recovery pattern to be seen, but can also lead to overfitting of noise and artifacts.
+**Recovery Threshold**: Set to 0.5. Lower numbers disallow very quick recoveries, but in tropical regions quick vegetative recovery after disturbance is the norm. 0.5 is a moderate value and dampens the impacts of noise. A value of 1 would allow all details in the recovery pattern to be seen, but can also lead to overfitting of noise and artifacts.
 
-* *p-value Threshold*: Keep at 0.05. However, if we note that the fits are not tracking somewhat noisy source data, this value could  be relaxed to 0.15. Increasing the p-value threshold allows fits to be captured that retain more residual noise after fitting.
+**p-value Threshold**: Keep at 0.05. However, if we note that the fits are not tracking somewhat noisy source data, this value could  be relaxed to 0.15. Increasing the p-value threshold allows fits to be captured that retain more residual noise after fitting.
 
-* *Best model Proportion*: Keep at 0.75
+**Best model Proportion**: Keep at 0.75
 
-* *Min Observations needed*: Keep at 6.
+**Min Observations needed**: Keep at 6.
 
-* *Image Id’s to exclude*: Leave blank unless you completed the optional High-Quality Landsaty Image selector tool.
+*Image Id’s to exclude*: Leave blank unless you completed the optional High-Quality Landsaty Image selector tool.
 
 <img align="center" src="../images/time-series-1/seg-params.PNG" hspace="15" vspace="10" width="600">
 
