@@ -8,7 +8,9 @@ nav_order: 3
 
 This workflow computes Loss (degradation & deforestation) and Gain (forest growth) independently of one another. Use your LandTrendr Gain Run outputs to calculate a Growth image and your Landtrendr Loss Run outputs to calculate a Loss Image. If you choose not to map Reforestation you will only need the Loss Image that is generated in this tool.
 
-**Note: This postprocessing workflow requires a Forest/NonForest mask image. You would need to source a reliable product for your region of interest first.** 
+**Note: This postprocessing workflow requires a Forest/NonForest mask image representing your time period of interest. We have provided a 'dummy' FNF mask image for you to use as an example.**
+
+**FNF Asset Path: projects/caribbean-trainings/assets/barbados-2022/images/FNFMask2000_2020**
 
 1. Find and open the script named: **3_LTMakeLossGainPostprocessed**. Click “Run” at the top to start the GUI.
 2. Input the paths to all the output files you created in the last tool under the dropdown menus for Loss & Gain, Loss, and Gain. These exports will need to be completed before you can run this tool.
