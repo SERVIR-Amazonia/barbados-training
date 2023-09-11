@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Challenge - Create a Loss Map, Explore Other Tools
+title: Challenge - Create a Vegetation Loss Map, Explore Other Tools
 parent: Time Series Change Detection 1
 nav_order: 4
 ---
 # Overview
 
-## Create a Forest Loss (Degradation & Deforestation) Map for a particular time period and area of interest
+## Create a Vegetation Loss (Degradation & Deforestation) Map for a particular time period and area of interest
 
 * Run the **2_LT-Data-Visualization** tool following Steps 1-8 in "Generating LandTrendr Outputs" section of "Running the LandTrendr GUI" module to generate outputs related to "Greatest Loss"
 
