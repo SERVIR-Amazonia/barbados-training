@@ -9,6 +9,6 @@ nav_order: 5
 
 <img align="center" src="../images/time-series-2/colab-logo.PNG" hspace="12" vspace="8" width="500">
 
-Colab Notebook: [Getting Started with Time Series Modeling](https://colab.research.google.com/drive/1pDFO_1Wf8X17TiIAdIiY_BwQZjhiTxTj?usp=sharing).
+Bonus Colab Notebook: [Getting Started with Time Series Modeling](https://colab.research.google.com/drive/1pDFO_1Wf8X17TiIAdIiY_BwQZjhiTxTj?usp=sharing).
 
 Please open this Notebook in a new tab and follow along!

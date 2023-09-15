@@ -13,6 +13,6 @@ Please follow the links below:
 
 Slides: [link](https://docs.google.com/presentation/d/161VH5A8tnA-Xpz93qqeeEAIG8xsdJsvkpNTX9oCJje8/edit?usp=sharing)
 
-Colab Notebook: [link](https://colab.research.google.com/drive/1bSo1bRxpt78R91febjS5cxA1byBk9F0j?usp=sharing)
+Colab Notebook: [link](https://colab.research.google.com/drive/1kiaSc_w_dGXgLj0-6wqHkhPGTooswIym?usp=drive_link)
 
 <img align="center" src="../images/time-series-2/colab-logo.PNG" hspace="12" vspace="8" width="500">
