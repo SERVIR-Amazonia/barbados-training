@@ -44,6 +44,3 @@ The recordings for each workshop session can be access by clicking the button be
 
 [View Recordings](https://drive.google.com/drive/folders/107PX7UudlXEnggrx3ijiQ9-BOdm-h_np?usp=share_link){: .btn .btn-purple }
 
-## License
-
-The accompanying program is provided under the terms of the Eclipse Public License v 2.0 ("Agreement"). Any use, reproduction or distribution of the program constitutes recipient's acceptance of this agreement. For more information go to https://github.com/SERVIR-Amazonia/barbados-training/blob/main/LICENSE.
