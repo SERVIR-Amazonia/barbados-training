@@ -13,7 +13,10 @@ Navigate through the different lesson sections by using the menu on the lefthand
 ## Session Agenda
 
 **Date**: September 28, 2023  
-**Instructor:** Kyle Woodward (kwoodward@sig-gis.com)
+
+**Instructor:** Kyle Woodward 
+
+**Contact information**: [em-trainings@sig-gis.com](em-trainings@sig-gis.com)
 
 |      Time     |                                                                                                       Topics                                                                                                                                     |
 |:-------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|

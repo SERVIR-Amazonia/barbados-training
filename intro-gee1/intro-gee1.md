@@ -15,6 +15,8 @@ Navigate through the different lesson sections by using the menu on the lefthand
 
 **Instructor(s):** Kyle Woodward
 
+**Contact information**: [em-trainings@sig-gis.com](em-trainings@sig-gis.com)
+
 |      Time     |                                                                                                       Topics                                                                                                      |
 |:-------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 | 09:00 – 09:30 |                   Introduction to GEE           |

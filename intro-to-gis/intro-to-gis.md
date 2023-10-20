@@ -13,7 +13,10 @@ Navigate through the different lesson sections by using the menu on the lefthand
 
 ## Session Agenda
 **Date**: December 1, 2022 
-**Instructor:** Hayley Pippin, hpippin@sig-gis.com
+
+**Instructor:** Hayley Pippin
+
+**Contact information**: [em-trainings@sig-gis.com](em-trainings@sig-gis.com)
 
 <table>
   <tbody>
